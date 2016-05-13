@@ -1,0 +1,13 @@
+Added Component: Designator=J1(CONTACT IDC 1 POS SMD 22AWG)
+Added Component: Designator=J2(CONTACT IDC 1 POS SMD 22AWG)
+Added Component: Designator=S1(KSEM31J LFS Tactile Switch)
+Added Pin To Net: NetName=NetJ1_1 Pin=J1-1
+Added Pin To Net: NetName=NetJ1_1 Pin=S1-1
+Added Pin To Net: NetName=NetJ1_1 Pin=S1-4
+Added Net: Name=NetJ1_1
+Added Pin To Net: NetName=NetJ2_1 Pin=J2-1
+Added Pin To Net: NetName=NetJ2_1 Pin=S1-2
+Added Pin To Net: NetName=NetJ2_1 Pin=S1-3
+Added Net: Name=NetJ2_1
+Added Class: Name=Switch Board Sch
+Added Room: Name=Switch Board Sch

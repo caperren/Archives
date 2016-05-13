@@ -1,0 +1,56 @@
+|-------------------------------------------------------------------------------|
+|Bill Of Materials for Mega2560DriverBoard.sch on Wed Dec 18 09:31:28 2013      |
+|-------------------------------------------------------------------------------|
+|Item|Qty |Reference|Part Name     |Manufacturer  |Description                  |
+|----+----+---------+--------------+--------------+-----------------------------|
+|1   |1   |U1       |ATMEL_ATMEGA25|              |                             |
+|    |    |         |60            |              |                             |
+|2   |1   |C4       |CAP0603,.01uF |IPC SM-782    |SURFACE MOUNT CAPACITOR 0.031|
+|    |    |         |              |STD.          |X 0.061 INCHES               |
+|3   |1   |C5       |CAP0603,100nF |IPC SM-782    |SURFACE MOUNT CAPACITOR 0.031|
+|    |    |         |              |STD.          |X 0.061 INCHES               |
+|4   |3   |C1-3     |CAP_FK1A151P  |              |                             |
+|5   |1   |J5       |CD4082_ANDGATE|              |                             |
+|6   |1   |D1       |CMS04_DIODE   |              |                             |
+|7   |1   |Y1       |CSTCE16MOV_CRY|              |                             |
+|    |    |         |STAL          |              |                             |
+|8   |1   |H10      |EXTRAPIN_HEADE|              |                             |
+|    |    |         |RS_24         |              |                             |
+|9   |1   |U9       |FT232RL_USART |              |                             |
+|10  |4   |U6 U8    |GREENLED_0603 |              |                             |
+|    |    |U10-11   |              |              |                             |
+|11  |1   |J7       |ICSP_HEADER   |              |                             |
+|12  |1   |L1       |IHLP6767DZER20|              |MOLDED INDUCTOR, 0.5" PIN    |
+|    |    |         |0M11_IND,22uH |              |SPACING                      |
+|13  |1   |U2       |LM2678S-5.0   |              |                             |
+|14  |4   |H11-14   |M3_MOUNTING_HO|              |                             |
+|    |    |         |LE            |              |                             |
+|15  |4   |H1-3 H8  |POLOLUDRV8825_|              |                             |
+|    |    |         |HEADERS       |              |                             |
+|16  |1   |D3       |REDLED_0603   |              |                             |
+|17  |13  |R12 R16  |RES0603,10k   |IPC SM-782    |SURFACE MOUNT RESISTOR 0.031 |
+|    |    |R19-29   |              |STD.          |X 0.061 INCHES, 1/10W        |
+|18  |5   |R10      |RES0603,150   |IPC SM-782    |SURFACE MOUNT RESISTOR 0.031 |
+|    |    |R13-14   |              |STD.          |X 0.061 INCHES, 1/10W        |
+|    |    |R17-18   |              |              |                             |
+|19  |1   |R1       |RES0603,1M    |IPC SM-782    |SURFACE MOUNT RESISTOR 0.031 |
+|    |    |         |              |STD.          |X 0.061 INCHES, 1/10W        |
+|20  |9   |R2-9 R11 |RES0603,1k    |IPC SM-782    |SURFACE MOUNT RESISTOR 0.031 |
+|    |    |         |              |STD.          |X 0.061 INCHES, 1/10W        |
+|21  |1   |R15      |RES0603,4.7k  |IPC SM-782    |SURFACE MOUNT RESISTOR 0.031 |
+|    |    |         |              |STD.          |X 0.061 INCHES, 1/10W        |
+|22  |1   |U5       |RGEF500_POLYFU|              |                             |
+|    |    |         |SE            |              |                             |
+|23  |4   |J1-4     |SCREW_TERMINAL|              |                             |
+|    |    |         |S             |              |                             |
+|24  |13  |U3-4 U7  |SCREW_TERMINAL|              |                             |
+|    |    |U12-21   |S_2           |              |                             |
+|25  |4   |H4-6 H9  |SCREW_TERMINAL|              |                             |
+|    |    |         |S_MOTORS      |              |                             |
+|26  |1   |H7       |SCREW_TERMINAL|              |                             |
+|    |    |         |S_SERVO       |              |                             |
+|27  |1   |D2       |SK8C-13_DIODE |              |                             |
+|28  |1   |J6       |SN74AH_ANDGATE|              |                             |
+|29  |1   |S1       |SWITCH_TACTILE|              |                             |
+|30  |1   |USB1     |USB_B_HEADER  |              |                             |
+|-------------------------------------------------------------------------------|

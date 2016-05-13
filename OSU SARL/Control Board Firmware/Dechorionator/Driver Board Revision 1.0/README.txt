@@ -1,0 +1,1 @@
+I was very new to programming at the time. Also, I had no clue how to spell dechorionator. XD

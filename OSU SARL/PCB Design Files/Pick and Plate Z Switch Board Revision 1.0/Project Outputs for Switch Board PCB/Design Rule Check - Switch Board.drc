@@ -1,0 +1,66 @@
+Protel Design System Design Rule Check
+PCB File : C:\Users\Corwin\Google Drive\_Work Related\SARL ECE\PCB Design\PickAndPlace\Final Boards\Switch Board\Switch Board.PcbDoc
+Date     : 9/22/2014
+Time     : 2:44:44 PM
+
+Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
+Rule Violations :0
+
+Processing Rule : Un-Routed Net Constraint ( (All) )
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=0.254mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=0.254mm) (Max=0.254mm) (Preferred=0.254mm) (All)
+Rule Violations :0
+
+Processing Rule : Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)
+Rule Violations :0
+
+Processing Rule : Hole Size Constraint (Min=0.025mm) (Max=2.54mm) (All)
+Rule Violations :0
+
+Processing Rule : Hole To Hole Clearance (Gap=0.254mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Minimum Solder Mask Sliver (Gap=0.254mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Silk To Solder Mask (Clearance=0.254mm) (IsPad),(All)
+   Violation between Track (61.722mm,84.709mm)(61.722mm,88.265mm)  Top Overlay and 
+                     Pad J1-1(62.992mm,86.487mm)  Top Layer
+   Violation between Track (64.262mm,84.709mm)(64.262mm,88.265mm)  Top Overlay and 
+                     Pad J1-1(62.992mm,86.487mm)  Top Layer
+   Violation between Track (61.722mm,84.709mm)(64.262mm,84.709mm)  Top Overlay and 
+                     Pad J1-1(62.992mm,86.487mm)  Top Layer
+   Violation between Track (61.722mm,88.265mm)(64.262mm,88.265mm)  Top Overlay and 
+                     Pad J1-1(62.992mm,86.487mm)  Top Layer
+   Violation between Track (71.628mm,84.709mm)(71.628mm,88.265mm)  Top Overlay and 
+                     Pad J2-1(72.898mm,86.487mm)  Top Layer
+   Violation between Track (74.168mm,84.709mm)(74.168mm,88.265mm)  Top Overlay and 
+                     Pad J2-1(72.898mm,86.487mm)  Top Layer
+   Violation between Track (71.628mm,84.709mm)(74.168mm,84.709mm)  Top Overlay and 
+                     Pad J2-1(72.898mm,86.487mm)  Top Layer
+   Violation between Track (71.628mm,88.265mm)(74.168mm,88.265mm)  Top Overlay and 
+                     Pad J2-1(72.898mm,86.487mm)  Top Layer
+Rule Violations :8
+
+Processing Rule : Silk to Silk (Clearance=0.254mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Silk primitive without silk layer
+Rule Violations :0
+
+Processing Rule : Net Antennae (Tolerance=0mm) (All)
+Rule Violations :0
+
+Processing Rule : Rule
+Rule Violations :0
+
+
+Violations Detected : 8
+Time Elapsed        : 00:00:00

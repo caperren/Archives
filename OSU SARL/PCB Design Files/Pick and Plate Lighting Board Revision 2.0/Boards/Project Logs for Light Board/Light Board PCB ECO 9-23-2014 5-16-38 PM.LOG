@@ -1,0 +1,14 @@
+Change Component Footprint: Designator=R1 Old Footprint=8-1206 New Footprint=AXIAL-0.3
+Change Component Footprint: Designator=R2 Old Footprint=8-1206 New Footprint=AXIAL-0.3
+Added Component: Designator=J1(CONTACT IDC 1 POS SMD 22AWG)
+Added Component: Designator=J2(CONTACT IDC 1 POS SMD 22AWG)
+Added Component: Designator=J3(CONTACT IDC 1 POS SMD 22AWG)
+Added Component: Designator=J4(CONTACT IDC 1 POS SMD 22AWG)
+Added Pin To Net: NetName=GND Pin=J1-1
+Added Pin To Net: NetName=VCC Pin=J2-1
+Added Pin To Net: NetName=GND Pin=J3-1
+Added Pin To Net: NetName=VCC Pin=J4-1
+Added Member To Class: ClassName=Light Board Member=Component J1 CONTACT IDC 1 POS SMD 22AWG
+Added Member To Class: ClassName=Light Board Member=Component J2 CONTACT IDC 1 POS SMD 22AWG
+Added Member To Class: ClassName=Light Board Member=Component J3 CONTACT IDC 1 POS SMD 22AWG
+Added Member To Class: ClassName=Light Board Member=Component J4 CONTACT IDC 1 POS SMD 22AWG

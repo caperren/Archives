@@ -1,0 +1,1 @@
+This was super simple. The speed control on a scientific rocker failed, so I build a replacement using an attiny, mosftet, and pot. 

@@ -1,0 +1,74 @@
+=======================================================================
+3D PCB Viewer - Version 2011.0.433.780
+=======================================================================
+
+Job Directory:        C:\Users\corwin\Google Drive\_Work Related\SARL\PCB Design\Mega2560DriverBoard\
+
+Design Status Report: C:\Users\corwin\Google Drive\_Work Related\SARL\PCB Design\Mega2560DriverBoard\Mega2560DriverBoard_PCB\3D\LogFiles\DesignStatus3D_00.txt
+
+Fri Dec 13 10:44:55 2013
+
+=======================================================================
+DESIGN STATUS
+=======================================================================
+Board Size Extents  ............ 0 X 0 (mm)
+Actual Board Area  ............. 0 (mm)
+
+Pins  .......................... 0
+
+Layers  ........................ 2
+    Layer 1
+        Trace Widths  .......... None.
+    Layer 2
+        Trace Widths  .......... None.
+
+Nets received ... 0
+Nets used in 3DViewer .......... 0
+Nets not used .................. 0
+
+Trace Widths Used (mm)  ........ 
+Vias  .......................... 0
+
+
+Parts Placed  .................. 79
+    Parts Mounted on Top  ...... 79
+        SMD  ................... 49
+        Through  ............... 30
+        Test Points  ........... 0
+        Mechanical  ............ 0
+    Parts Mounted on Bottom  ... 0
+        SMD  ................... 0
+        Through  ............... 0
+        Test Points  ........... 0
+        Mechanical  ............ 0
+    Embedded Components ........ 0
+    RF Shapes .................. 0
+
+    Edge Connector Parts  ...... 0
+
+Parts not Placed  .............. 0
+
+Parts not shown in viewer ...... 0
+
+Jumpers  ....................... 0
+
+
+Through Holes  ................. 163
+Mounting Holes  ................ 0
+
+Part Packages .................. 42
+Padstack instances ............. 20
+Padstack names ................. 20
+
+Physical Stackup
+................................ thk ........ elevation
+     SM Top .................... No Solder Mask
+   Top Component Elevation .................. 0.323
+     Insulator  Layer  ......... 0.000 ...... 0.323
+     Conductive Layer 1 ........ 0.034 ...... 0.323
+     Insulator  Layer  ......... 0.254 ...... 0.288
+     Conductive Layer 2 ........ 0.034 ...... 0.034
+     Insulator  Layer  ......... 0.000 ...... 0.000
+   Bottom Component Elevation ............... 0.000
+     SM Bottom ................. No Solder Mask
+          total ................ 0.323

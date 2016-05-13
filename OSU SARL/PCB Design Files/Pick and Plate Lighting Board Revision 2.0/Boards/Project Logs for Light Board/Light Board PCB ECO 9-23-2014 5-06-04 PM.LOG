@@ -1,0 +1,66 @@
+Added Component: Designator=D1(CLA1B-WKW-XD0F0E13 White SMD Led)
+Added Component: Designator=D2(CLA1B-WKW-XD0F0E13 White SMD Led)
+Added Component: Designator=D3(CLA1B-WKW-XD0F0E13 White SMD Led)
+Added Component: Designator=D4(CLA1B-WKW-XD0F0E13 White SMD Led)
+Added Component: Designator=D5(CLA1B-WKW-XD0F0E13 White SMD Led)
+Added Component: Designator=D6(CLA1B-WKW-XD0F0E13 White SMD Led)
+Added Component: Designator=D7(CLA1B-WKW-XD0F0E13 White SMD Led)
+Added Component: Designator=D8(CLA1B-WKW-XD0F0E13 White SMD Led)
+Added Component: Designator=D9(CLA1B-WKW-XD0F0E13 White SMD Led)
+Added Component: Designator=D10(CLA1B-WKW-XD0F0E13 White SMD Led)
+Added Component: Designator=D11(CLA1B-WKW-XD0F0E13 White SMD Led)
+Added Component: Designator=D12(CLA1B-WKW-XD0F0E13 White SMD Led)
+Added Component: Designator=D13(CLA1B-WKW-XD0F0E13 White SMD Led)
+Added Component: Designator=D14(CLA1B-WKW-XD0F0E13 White SMD Led)
+Added Component: Designator=R1(8-1206)
+Added Component: Designator=R2(8-1206)
+Added Pin To Net: NetName=GND Pin=D7-4
+Added Pin To Net: NetName=GND Pin=D14-4
+Added Net: Name=GND
+Added Pin To Net: NetName=NetD1_2 Pin=D1-2
+Added Pin To Net: NetName=NetD1_2 Pin=R1-1
+Added Net: Name=NetD1_2
+Added Pin To Net: NetName=NetD1_4 Pin=D1-4
+Added Pin To Net: NetName=NetD1_4 Pin=D2-2
+Added Net: Name=NetD1_4
+Added Pin To Net: NetName=NetD2_4 Pin=D2-4
+Added Pin To Net: NetName=NetD2_4 Pin=D3-2
+Added Net: Name=NetD2_4
+Added Pin To Net: NetName=NetD3_4 Pin=D3-4
+Added Pin To Net: NetName=NetD3_4 Pin=D4-2
+Added Net: Name=NetD3_4
+Added Pin To Net: NetName=NetD4_4 Pin=D4-4
+Added Pin To Net: NetName=NetD4_4 Pin=D5-2
+Added Net: Name=NetD4_4
+Added Pin To Net: NetName=NetD5_4 Pin=D5-4
+Added Pin To Net: NetName=NetD5_4 Pin=D6-2
+Added Net: Name=NetD5_4
+Added Pin To Net: NetName=NetD6_4 Pin=D6-4
+Added Pin To Net: NetName=NetD6_4 Pin=D7-2
+Added Net: Name=NetD6_4
+Added Pin To Net: NetName=NetD8_2 Pin=D8-2
+Added Pin To Net: NetName=NetD8_2 Pin=R2-1
+Added Net: Name=NetD8_2
+Added Pin To Net: NetName=NetD8_4 Pin=D8-4
+Added Pin To Net: NetName=NetD8_4 Pin=D9-2
+Added Net: Name=NetD8_4
+Added Pin To Net: NetName=NetD9_4 Pin=D9-4
+Added Pin To Net: NetName=NetD9_4 Pin=D10-2
+Added Net: Name=NetD9_4
+Added Pin To Net: NetName=NetD10_4 Pin=D10-4
+Added Pin To Net: NetName=NetD10_4 Pin=D11-2
+Added Net: Name=NetD10_4
+Added Pin To Net: NetName=NetD11_4 Pin=D11-4
+Added Pin To Net: NetName=NetD11_4 Pin=D12-2
+Added Net: Name=NetD11_4
+Added Pin To Net: NetName=NetD12_4 Pin=D12-4
+Added Pin To Net: NetName=NetD12_4 Pin=D13-2
+Added Net: Name=NetD12_4
+Added Pin To Net: NetName=NetD13_4 Pin=D13-4
+Added Pin To Net: NetName=NetD13_4 Pin=D14-2
+Added Net: Name=NetD13_4
+Added Pin To Net: NetName=VCC Pin=R1-2
+Added Pin To Net: NetName=VCC Pin=R2-2
+Added Net: Name=VCC
+Added Class: Name=Light Board
+Added Room: Name=Light Board

@@ -1,0 +1,73 @@
+|-------------------------------------------------------------------------------|
+|Bill Of Materials for DriverBoardRev2.sch on Sun Jul 27 10:52:10 2014          |
+|-------------------------------------------------------------------------------|
+|Item|Qty |Reference|Part Name     |Manufacturer  |Description                  |
+|----+----+---------+--------------+--------------+-----------------------------|
+|1   |1   |L1       |0603_IND      |              |                             |
+|2   |5   |R1 R21-22|10K_RESISTOR_A|              |                             |
+|    |    |R24-25   |RRAY_4_RES    |              |                             |
+|3   |3   |J3 J8-9  |2PIN_AMP100_CO|              |                             |
+|    |    |         |NNECTOR       |              |                             |
+|4   |4   |J4-7     |4PIN_AMP100_CO|              |                             |
+|    |    |         |NNECTOR       |              |                             |
+|5   |4   |U18-21   |8PIN_AMP100_CO|              |                             |
+|    |    |         |NNECTOR       |              |                             |
+|6   |1   |Y1       |ABM3_8MHZ_CRYS|              |                             |
+|    |    |         |TAL           |              |                             |
+|7   |1   |U22      |AO3400A_N_CHAN|              |                             |
+|    |    |         |NEL_MOSFET    |              |                             |
+|8   |1   |MOSFET1  |AO4435_P_CHANN|              |                             |
+|    |    |         |EL_MOSFET     |              |                             |
+|9   |1   |U1       |ATXMEGA256A3U |              |                             |
+|10  |2   |J1-2     |BB_BLK_HEADER |              |                             |
+|11  |12  |C19-20   |CAP0603,.1uF  |IPC SM-782    |SURFACE MOUNT CAPACITOR 0.031|
+|    |    |C22      |              |STD.          |X 0.061 INCHES               |
+|    |    |C25-26   |              |              |                             |
+|    |    |C28      |              |              |                             |
+|    |    |C31-32   |              |              |                             |
+|    |    |C34      |              |              |                             |
+|    |    |C37-38   |              |              |                             |
+|    |    |C40      |              |              |                             |
+|12  |4   |C21 C27  |CAP0603,.47uF |IPC SM-782    |SURFACE MOUNT CAPACITOR 0.031|
+|    |    |C33 C39  |              |STD.          |X 0.061 INCHES               |
+|13  |11  |C1-9 C11 |CAP0603,100nF |IPC SM-782    |SURFACE MOUNT CAPACITOR 0.031|
+|    |    |C45      |              |STD.          |X 0.061 INCHES               |
+|14  |5   |C10 C17  |CAP0603,10nF  |IPC SM-782    |SURFACE MOUNT CAPACITOR 0.031|
+|    |    |C23 C29  |              |STD.          |X 0.061 INCHES               |
+|    |    |C35      |              |              |                             |
+|15  |7   |C12      |CAP0603,4.7uF |IPC SM-782    |SURFACE MOUNT CAPACITOR 0.031|
+|    |    |C15-16   |              |STD.          |X 0.061 INCHES               |
+|    |    |C18 C24  |              |              |                             |
+|    |    |C30 C36  |              |              |                             |
+|16  |2   |C13-14   |CAP1206,10uF  |IPC SM-782    |SURFACE MOUNT CAPACITOR 0.062|
+|    |    |         |              |STD.          |X 0.126 INCHES               |
+|17  |4   |C41-44   |CAP_100UF_35V_|              |                             |
+|    |    |         |ALUMINUM      |              |                             |
+|18  |1   |U9       |FT232RL_USART |              |                             |
+|19  |2   |U10-11   |GREENLED_0603 |              |                             |
+|20  |1   |U23      |ICSP_HEADER   |              |                             |
+|21  |1   |U24      |JTAG_HEADER   |              |                             |
+|22  |4   |U14-17   |M3_MOUNTING_HO|              |                             |
+|    |    |         |LES           |              |                             |
+|23  |1   |VR2      |MCP1700T_3.3V_|              |                             |
+|    |    |         |REG           |              |                             |
+|24  |4   |H1-3 H8  |POLOLUDRV8825_|              |                             |
+|    |    |         |HEADERS       |              |                             |
+|25  |8   |R3-4 R7-8|RES0603,.1    |IPC SM-782    |SURFACE MOUNT RESISTOR 0.031 |
+|    |    |R11-12   |              |STD.          |X 0.061 INCHES, 1/10W        |
+|    |    |R15-16   |              |              |                             |
+|26  |4   |R5 R9 R13|RES0603,1.5k  |IPC SM-782    |SURFACE MOUNT RESISTOR 0.031 |
+|    |    |R19      |              |STD.          |X 0.061 INCHES, 1/10W        |
+|27  |5   |R2 R6 R10|RES0603,10k   |IPC SM-782    |SURFACE MOUNT RESISTOR 0.031 |
+|    |    |R14 R20  |              |STD.          |X 0.061 INCHES, 1/10W        |
+|28  |2   |R17-18   |RES0603,68    |IPC SM-782    |SURFACE MOUNT RESISTOR 0.031 |
+|    |    |         |              |STD.          |X 0.061 INCHES, 1/10W        |
+|29  |4   |U5-6 U8  |ST4ETB103_POTE|              |                             |
+|    |    |U13      |NTIOMETER     |              |                             |
+|30  |1   |S1       |SWITCH_TACTILE|              |                             |
+|31  |4   |U3-4 U7  |TI_DRV8825    |              |                             |
+|    |    |U12      |              |              |                             |
+|32  |1   |U2       |USB_B_HEADER  |              |                             |
+|33  |1   |VR1      |V7805_1000_DCD|              |                             |
+|    |    |         |C_CONVERTER   |              |                             |
+|-------------------------------------------------------------------------------|

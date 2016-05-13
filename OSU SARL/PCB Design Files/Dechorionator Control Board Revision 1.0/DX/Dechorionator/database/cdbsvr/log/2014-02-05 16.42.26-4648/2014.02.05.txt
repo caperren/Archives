@@ -1,0 +1,108 @@
+[2014.02.05 16:42:26] [0000m.00s.121ms] [0] WELCOME
+[2014.02.05 16:42:26] [0000m.00s.125ms] [1] iCDB Server ver.1.092, dDIpY0GKBXTaphtjZSQNoQ, build:456818 created 2011-06-18 09:26:46, sources stamp:dDIpY0GKBXTaphtjZSQNoQ
+[2014.02.05 16:42:26] [0000m.00s.125ms] [1] Copyright 2011 Mentor Graphics Corporation. All Rights Reserved.
+[2014.02.05 16:42:26] [0000m.00s.125ms] [1] Base flow version [7.9.2]
+[2014.02.05 16:42:26] [0000m.00s.125ms] [1] GBS Install Id [19459], Flow Id [PADS 9.3.1], Full Flow Name [PADS 9.3.1], Exact Access Date [May 1 2011]
+[2014.02.05 16:42:26] [0000m.00s.128ms] [1] Machine [WIN-B1LG9N64N66]  User [corwin]  PID [4648]
+[2014.02.05 16:42:26] [0000m.00s.128ms] [1] Operating system [Microsoft Business Edition, 64-bit (build 9200)]
+[2014.02.05 16:42:26] [0000m.00s.128ms] [1] Current working dir [C:\Users\corwin\Google Drive\_Work Related\SARL\PCB Design\Dechorionator\DX\Dechorionator]
+[2014.02.05 16:42:26] [0000m.00s.128ms] [1] PATH [C:\MentorGraphics\9.3.1PADS\SDD_HOME\wv\win32\bin;C:\MentorGraphics\9.3.1PADS\SDD_HOME\common\win32\bin;C:\MentorGraphics\9.3.1PADS\SDD_HOME\common\win32\lib;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:/MentorGraphics/9.3.1PADS/MGC_HOME.ixn/bin;C:/MentorGraphics/9.3.1PADS/MGC_HOME.ixn/lib;C:\MentorGraphics\9.3.1PADS\MGC_HOME.ixn\bin;C:\MentorGraphics\9.3.1PADS\MGC_HOME.ixn\lib;]
+[2014.02.05 16:42:26] [0000m.00s.128ms] [1] SDD_HOME [C:\MentorGraphics\9.3.1PADS\SDD_HOME] on file system [NTFS]
+[2014.02.05 16:42:26] [0000m.00s.128ms] [1] SDD_PLATFORM [win32]
+[2014.02.05 16:42:26] [0000m.00s.128ms] [1] WDIR [C:\PADS Projects;C:\MentorGraphics\9.3.1PADS\SDD_HOME\standard]
+[2014.02.05 16:42:26] [0000m.00s.128ms] [1] Local iCDB working dir [C:\PADS Projects\iCDB] on file system [NTFS]
+[2014.02.05 16:42:26] [0000m.00s.129ms] [2] S: Loading config files
+[2014.02.05 16:42:26] [0000m.00s.155ms] [1] Config file [C:\Users\corwin\Google Drive\_Work Related\SARL\PCB Design\Dechorionator\DX\Dechorionator\database\cdbsvr\Server.cfg] not found
+[2014.02.05 16:42:26] [0000m.00s.157ms] [3] S: Config loaded
+[2014.02.05 16:42:26] [0000m.00s.162ms] [0] S: Project path [C:\Users\corwin\Google Drive\_Work Related\SARL\PCB Design\Dechorionator\DX\Dechorionator\database] on file system [NTFS]
+[2014.02.05 16:42:26] [0000m.00s.162ms] [0] S: Project file (.prj) path [C:\Users\corwin\Google Drive\_Work Related\SARL\PCB Design\Dechorionator\DX\Dechorionator\Dechorionator.prj] on file system [NTFS]
+[2014.02.05 16:42:26] [0000m.00s.168ms] [0] S: Single-user mode (auto)
+[2014.02.05 16:42:26] [0000m.00s.168ms] [0] S: Event polling mode autodetection
+[2014.02.05 16:42:26] [0000m.00s.172ms] [0] S: Started up automatically by iCDB Client: WIN-B1LG9N64N66:corwin:4136
+[2014.02.05 16:42:26] [0000m.00s.172ms] [0] S: Auto close mode
+[2014.02.05 16:42:26] [0000m.00s.172ms] [0] S: Database ID [5d1f-1ee2-7611-9b5e-27ad-2f27-7ad2-f250-1744-42ce-22ef-324a]
+[2014.02.05 16:42:26] [0000m.00s.172ms] [0] PathTranslator: BEGIN dumping
+[2014.02.05 16:42:26] [0000m.00s.172ms] [0] PathTranslator: Local -> global path prefix list
+[2014.02.05 16:42:26] [0000m.00s.172ms] [0] PathTranslator: [Z:\] -> [\\bridges1.cgrb.oregonstate.edu\sarl_engineering\]
+[2014.02.05 16:42:26] [0000m.00s.172ms] [0] PathTranslator: Global -> local path prefix list
+[2014.02.05 16:42:26] [0000m.00s.172ms] [0] PathTranslator: [\\bridges1.cgrb.oregonstate.edu\sarl_engineering\] -> [Z:\]
+[2014.02.05 16:42:26] [0000m.00s.172ms] [0] PathTranslator: END dumping
+[2014.02.05 16:42:26] [0000m.00s.172ms] [0] S: START
+[2014.02.05 16:42:26] [0000m.00s.173ms] [0] S: Server startup lock file created
+[2014.02.05 16:42:26] [0000m.00s.173ms] [0] S: Listening for client connections on port [10000]
+[2014.02.05 16:42:26] [0000m.00s.188ms] [0] S: Server network ID [WIN-B1LG9N64N66:192.168.206.129,WIN-B1LG9N64N66:10000]
+[2014.02.05 16:42:26] [0000m.00s.188ms] [0] S: Server GUID [3a55-825d-e162-3e71-27ad-2f27-7ad2-f250-d8c3-42ce-22ef-324a]
+[2014.02.05 16:42:26] [0000m.00s.188ms] [0] S: Project GUID [5d1f-1ee2-7611-9b5e-27ad-2f27-7ad2-f250-1744-42ce-22ef-324a]
+[2014.02.05 16:42:26] [0000m.00s.196ms] [0] S: Wrote data to server address file
+[2014.02.05 16:42:26] [0000m.00s.197ms] [0] S: Server startup lock file removed
+[2014.02.05 16:42:26] [0000m.00s.197ms] [1] ProjectBackupManager: Setting project file (.prj) path: [C:\Users\corwin\Google Drive\_Work Related\SARL\PCB Design\Dechorionator\DX\Dechorionator\Dechorionator.prj]
+[2014.02.05 16:42:26] [0000m.00s.456ms] [0] S: Plugins loaded: [PIM] [ENetGen70] 
+[2014.02.05 16:42:26] [0000m.00s.456ms] [0] S: Local disc access time: 41 us
+[2014.02.05 16:42:26] [0000m.00s.456ms] [0] S: File server access time: 48 us
+[2014.02.05 16:42:27] [0000m.00s.467ms] [0] Single file [C:\Users\corwin\Google Drive\_Work Related\SARL\PCB Design\Dechorionator\DX\Dechorionator\database\icdb.dat] not exists
+[2014.02.05 16:42:27] [0000m.00s.468ms] [1] Single file [C:\Users\corwin\Google Drive\_Work Related\SARL\PCB Design\Dechorionator\DX\Dechorionator\database\icdb.dat] created
+[2014.02.05 16:42:27] [0000m.00s.469ms] [0] iCDB Server PI: Server & plugin session [1]
+[2014.02.05 16:42:27] [0000m.00s.469ms] [0] iCDB Server PI: Opening database [C:\Users\corwin\Google Drive\_Work Related\SARL\PCB Design\Dechorionator\DX\Dechorionator\database]
+[2014.02.05 16:42:27] [0000m.00s.469ms] [0] iCDB Server PI: Database [C:\Users\corwin\Google Drive\_Work Related\SARL\PCB Design\Dechorionator\DX\Dechorionator\database] opened
+[2014.02.05 16:42:27] [0000m.00s.510ms] [0] iCDB Database: Checking existence of constraint definitions
+[2014.02.05 16:42:27] [0000m.00s.510ms] [0] iCDB Database: Loading constraint definitions into database
+[2014.02.05 16:42:27] [0000m.00s.585ms] [0] iCDB Database: Constraint definitions version [ce_ee.cns=7.10.16] loaded
+[2014.02.05 16:42:27] [0000m.00s.592ms] [0] iCDB Server PI: Initializing plugins
+[2014.02.05 16:42:27] [0000m.00s.595ms] [0] iCDB Server PI: Plugins initialized
+[2014.02.05 16:42:27] [0000m.00s.595ms] [0] S: iCDB database loaded
+[2014.02.05 16:42:27] [0000m.00s.596ms] [0] S: Starting threads
+[2014.02.05 16:42:27] [0000m.00s.597ms] [1] CMT: There are no clients - waiting [10 seconds]
+[2014.02.05 16:42:27] [0000m.00s.608ms] [0] BT: Listening for broadcast messages on port [10000]
+[2014.02.05 16:42:27] [0000m.00s.608ms] [0] IT: Session [2] for host [WIN-B1LG9N64N66] user [corwin] with process ID [4136] created
+[2014.02.05 16:42:27] [0000m.00s.610ms] [1] SC[2]: Registered sub-client [DxD] with ID [1] for session ID [2] host [WIN-B1LG9N64N66] user [corwin] process ID [4136]
+[2014.02.05 16:42:27] [0000m.00s.624ms] [1] PrjBackupMgr: Successfully created Project Backup [C:\Users\corwin\Google Drive\_Work Related\SARL\PCB Design\Dechorionator\DX\Dechorionator\ProjectBackup\backups\2014-02-05 16.42.27 - auto.zip] with GUID [5226-29d2-efab-2c2f-37ad-2f28-7ad2-f250-5ef3-42ce-22ef-324a]
+[2014.02.05 16:42:27] [0000m.00s.624ms] [1] SC[2]: Registered sub-client [TransactionRollbackSubClient] with ID [2] for session ID [2] host [WIN-B1LG9N64N66] user [corwin] process ID [4136]
+[2014.02.05 16:42:27] [0000m.00s.624ms] [0] PrjBackupEngine: Successfully created backup:  BackupGUID[5226-29d2-efab-2c2f-37ad-2f28-7ad2-f250-5ef3-42ce-22ef-324a] CreationTime[Thursday, February 06, 2014 00:42:27] Type[Autosave] Creator[iCDB Server (2014-02-05 16.42.26-4648)] ApplicationName[iCDB Server (2014-02-05 16.42.26-4648)] UserName[corwin] MachineName[WIN-B1LG9N64N66] Description[Autosave] FullFlowName[PADS 9.3.1] FlowId[PADS 9.3.1] GBSInstallId[19459] GBSBuildId[456818] IcdbVersion[2654] ReferenceLogFilePath[] BackupFilePath[C:\Users\corwin\Google Drive\_Work Related\SARL\PCB Design\Dechorionator\DX\Dechorionator\ProjectBackup\backups\2014-02-05 16.42.27 - auto.zip] BackupFileSize[10722]
+[2014.02.05 16:42:27] [0000m.00s.625ms] [1] SC[2]: Registered sub-client [xprob] with ID [3] for session ID [2] host [WIN-B1LG9N64N66] user [corwin] process ID [4136]
+[2014.02.05 16:42:27] [0000m.00s.698ms] [1] CMT: There are [1] clients now: 2
+[2014.02.05 16:42:28] [0000m.02s.235ms] [1] SC[2]: Registered sub-client [SelectionHolder] with ID [4] for session ID [2] host [WIN-B1LG9N64N66] user [corwin] process ID [4136]
+[2014.02.05 16:42:28] [0000m.02s.390ms] [1] SC[2]: Registered sub-client [HdlProject] with ID [5] for session ID [2] host [WIN-B1LG9N64N66] user [corwin] process ID [4136]
+[2014.02.05 16:42:28] [0000m.02s.399ms] [1] SC[2]: Registered sub-client [Navigator] with ID [6] for session ID [2] host [WIN-B1LG9N64N66] user [corwin] process ID [4136]
+[2014.02.05 16:42:28] [0000m.02s.405ms] [1] SC[2]: Registered sub-client [OutputWindow] with ID [7] for session ID [2] host [WIN-B1LG9N64N66] user [corwin] process ID [4136]
+[2014.02.05 16:42:28] [0000m.02s.406ms] [1] SC[2]: Registered sub-client [PlaceDevice] with ID [8] for session ID [2] host [WIN-B1LG9N64N66] user [corwin] process ID [4136]
+[2014.02.05 16:42:28] [0000m.02s.414ms] [1] SC[2]: Registered sub-client [SAE] with ID [9] for session ID [2] host [WIN-B1LG9N64N66] user [corwin] process ID [4136]
+[2014.02.05 16:42:28] [0000m.02s.430ms] [1] SC[2]: Registered sub-client [DxConstraints] with ID [10] for session ID [2] host [WIN-B1LG9N64N66] user [corwin] process ID [4136]
+[2014.02.05 16:42:28] [0000m.02s.431ms] [1] SC[2]: Registered sub-client [CCZAddin] with ID [11] for session ID [2] host [WIN-B1LG9N64N66] user [corwin] process ID [4136]
+[2014.02.05 16:42:28] [0000m.02s.432ms] [1] SC[2]: Registered sub-client [DxThumbnails] with ID [12] for session ID [2] host [WIN-B1LG9N64N66] user [corwin] process ID [4136]
+[2014.02.05 16:42:29] [0000m.02s.490ms] [1] SC[2]: Registered sub-client [SheetConnectorsCacheDxD:20384] with ID [13] for session ID [2] host [WIN-B1LG9N64N66] user [corwin] process ID [4136]
+[2014.02.05 16:42:29] [0000m.02s.491ms] [1] SC[2]: Registered sub-client [NetsNamesCollectorDxD:16261] with ID [14] for session ID [2] host [WIN-B1LG9N64N66] user [corwin] process ID [4136]
+[2014.02.05 16:42:29] [0000m.02s.495ms] [1] SC[2]: Registered sub-client [DxDbSearch] with ID [15] for session ID [2] host [WIN-B1LG9N64N66] user [corwin] process ID [4136]
+[2014.02.05 16:42:47] [0000m.21s.068ms] [0] DFAMT: File server access time: 62 us
+[2014.02.05 16:45:28] [0003m.01s.852ms] [1] SC[2]: UnRegistered sub-client [SelectionHolder] with ID [4] for session ID [2] host [WIN-B1LG9N64N66] user [corwin] process ID [4136]
+[2014.02.05 16:45:28] [0003m.01s.853ms] [1] SC[2]: UnRegistered sub-client [SheetConnectorsCacheDxD:20384] with ID [13] for session ID [2] host [WIN-B1LG9N64N66] user [corwin] process ID [4136]
+[2014.02.05 16:45:28] [0003m.01s.853ms] [1] SC[2]: UnRegistered sub-client [NetsNamesCollectorDxD:16261] with ID [14] for session ID [2] host [WIN-B1LG9N64N66] user [corwin] process ID [4136]
+[2014.02.05 16:45:28] [0003m.01s.855ms] [1] SC[2]: UnRegistered sub-client [TransactionRollbackSubClient] with ID [2] for session ID [2] host [WIN-B1LG9N64N66] user [corwin] process ID [4136]
+[2014.02.05 16:45:28] [0003m.01s.856ms] [1] SC[2]: UnRegistered sub-client [DxD] with ID [1] for session ID [2] host [WIN-B1LG9N64N66] user [corwin] process ID [4136]
+[2014.02.05 16:45:28] [0003m.01s.871ms] [1] SC[2]: UnRegistered sub-client [xprob] with ID [3] for session ID [2] host [WIN-B1LG9N64N66] user [corwin] process ID [4136]
+[2014.02.05 16:45:30] [0003m.03s.692ms] [1] SC[2]: UnRegistered sub-client [Navigator] with ID [6] for session ID [2] host [WIN-B1LG9N64N66] user [corwin] process ID [4136]
+[2014.02.05 16:45:30] [0003m.03s.692ms] [1] SC[2]: UnRegistered sub-client [OutputWindow] with ID [7] for session ID [2] host [WIN-B1LG9N64N66] user [corwin] process ID [4136]
+[2014.02.05 16:45:30] [0003m.03s.738ms] [1] SC[2]: UnRegistered sub-client [DxDbSearch] with ID [15] for session ID [2] host [WIN-B1LG9N64N66] user [corwin] process ID [4136]
+[2014.02.05 16:45:30] [0003m.03s.740ms] [1] SC[2]: UnRegistered sub-client [SAE] with ID [9] for session ID [2] host [WIN-B1LG9N64N66] user [corwin] process ID [4136]
+[2014.02.05 16:45:30] [0003m.03s.742ms] [1] SC[2]: UnRegistered sub-client [CCZAddin] with ID [11] for session ID [2] host [WIN-B1LG9N64N66] user [corwin] process ID [4136]
+[2014.02.05 16:45:30] [0003m.03s.743ms] [1] SC[2]: UnRegistered sub-client [DxThumbnails] with ID [12] for session ID [2] host [WIN-B1LG9N64N66] user [corwin] process ID [4136]
+[2014.02.05 16:45:30] [0003m.03s.776ms] [1] SC[2]: UnRegistered sub-client [PlaceDevice] with ID [8] for session ID [2] host [WIN-B1LG9N64N66] user [corwin] process ID [4136]
+[2014.02.05 16:45:30] [0003m.03s.804ms] [1] SC[2]: UnRegistered sub-client [DxConstraints] with ID [10] for session ID [2] host [WIN-B1LG9N64N66] user [corwin] process ID [4136]
+[2014.02.05 16:45:30] [0003m.03s.871ms] [1] SC[2]: UnRegistered sub-client [HdlProject] with ID [5] for session ID [2] host [WIN-B1LG9N64N66] user [corwin] process ID [4136]
+[2014.02.05 16:45:30] [0003m.03s.970ms] [1] CMT: Removed client [2]
+[2014.02.05 16:45:30] [0003m.03s.970ms] [1] CMT: There are no clients left - waiting [1 seconds]
+[2014.02.05 16:45:32] [0003m.05s.482ms] [0] CMT: Starting server auto-close
+[2014.02.05 16:45:32] [0003m.05s.554ms] [0] S: Closing server
+[2014.02.05 16:45:32] [0003m.05s.601ms] [0] iCDB Server PI: Closing plugins
+[2014.02.05 16:45:32] [0003m.05s.601ms] [0] iCDB Server PI: Plugins closed
+[2014.02.05 16:45:32] [0003m.05s.601ms] [0] iCDB Server PI: Unloading database
+[2014.02.05 16:45:32] [0003m.05s.601ms] [0] iCDB Server PI: Saving storage
+[2014.02.05 16:45:32] [0003m.05s.601ms] [0] iCDB Server PI: Closing database
+[2014.02.05 16:45:32] [0003m.05s.605ms] [1] iCDB Server PI: Stats: Database defragmentation: max[2] avg[1] holes[0%] data[61%]
+[2014.02.05 16:45:32] [0003m.05s.605ms] [1] iCDB Server PI: Stats: Database file size [46832 (45.7 kB)]
+[2014.02.05 16:45:32] [0003m.05s.619ms] [0] iCDB Server PI: Database closed
+[2014.02.05 16:45:32] [0003m.05s.619ms] [1] iCDB Server PI: Stats: Total iCDB execution time: [4645] ticks
+[2014.02.05 16:45:32] [0003m.05s.619ms] [1] iCDB Server PI: Stats: Total iCDB execution time: [1402] microseconds
+[2014.02.05 16:45:32] [0003m.05s.619ms] [1] iCDB Server PI: Stats: Total iCDB commands count: [6]
+[2014.02.05 16:45:32] [0003m.05s.619ms] [1] iCDB Server PI: Stats: Average iCDB speed:        [4279] commands per second
+[2014.02.05 16:45:32] [0003m.05s.620ms] [0] Single file [C:\Users\corwin\Google Drive\_Work Related\SARL\PCB Design\Dechorionator\DX\Dechorionator\database\icdb.dat] closed with size [46832 (45.7 kB)]
+[2014.02.05 16:45:32] [0003m.05s.768ms] [0] S: STOP

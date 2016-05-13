@@ -1,0 +1,55 @@
++AHw--------------------------------------------------------------------------------+AHw-
++AHw-Bill Of Materials for ShuttleBoxBehavior.sch on Mon Jun 30 21:05:57 2014       +AHw-
++AHw--------------------------------------------------------------------------------+AHw-
++AHw-Item+AHw-Qty +AHw-Reference+AHw-Part Name     +AHw-Manufacturer  +AHw-Description                  +AHw-
++AHw-----+----+---------+--------------+--------------+-----------------------------+AHw-
++AHw-1   +AHw-3   +AHw-U5-7     +AHw-5MM+AF8-3MM+AF8-SCREW+AF8AfA-              +AHw-                             +AHw-
++AHw-    +AHw-    +AHw-         +AHw-POST          +AHw-              +AHw-                             +AHw-
++AHw-2   +AHw-1   +AHw-U1       +AHw-ATMEL+AF8-ATMEGA+AF8-3+AHw-              +AHw-                             +AHw-
++AHw-    +AHw-    +AHw-         +AHw-28            +AHw-              +AHw-                             +AHw-
++AHw-3   +AHw-1   +AHw-C6       +AHw-CAP0603,100n  +AHw-IPC SM-782    +AHw-SURFACE MOUNT CAPACITOR 0.031+AHw-
++AHw-    +AHw-    +AHw-         +AHw-              +AHw-STD.          +AHw-X 0.061 INCHES               +AHw-
++AHw-4   +AHw-1   +AHw-C5       +AHw-CAP0603,100nF +AHw-IPC SM-782    +AHw-SURFACE MOUNT CAPACITOR 0.031+AHw-
++AHw-    +AHw-    +AHw-         +AHw-              +AHw-STD.          +AHw-X 0.061 INCHES               +AHw-
++AHw-5   +AHw-1   +AHw-C2       +AHw-CAP0603,22uF  +AHw-IPC SM-782    +AHw-SURFACE MOUNT CAPACITOR 0.031+AHw-
++AHw-    +AHw-    +AHw-         +AHw-              +AHw-STD.          +AHw-X 0.061 INCHES               +AHw-
++AHw-6   +AHw-1   +AHw-C1       +AHw-CAP0603,470pF +AHw-IPC SM-782    +AHw-SURFACE MOUNT CAPACITOR 0.031+AHw-
++AHw-    +AHw-    +AHw-         +AHw-              +AHw-STD.          +AHw-X 0.061 INCHES               +AHw-
++AHw-7   +AHw-1   +AHw-C4       +AHw-CAP1206,10uF  +AHw-IPC SM-782    +AHw-SURFACE MOUNT CAPACITOR 0.062+AHw-
++AHw-    +AHw-    +AHw-         +AHw-              +AHw-STD.          +AHw-X 0.126 INCHES               +AHw-
++AHw-8   +AHw-1   +AHw-C3       +AHw-CAP1210,100uF +AHw-IPC SM-782    +AHw-SURFACE MOUNT CAPACITOR 0.098+AHw-
++AHw-    +AHw-    +AHw-         +AHw-              +AHw-STD.          +AHw-X 0.126 INCHES               +AHw-
++AHw-9   +AHw-1   +AHw-Y1       +AHw-CSTCE16MOV+AF8-CRY+AHw-              +AHw-                             +AHw-
++AHw-    +AHw-    +AHw-         +AHw-STAL          +AHw-              +AHw-                             +AHw-
++AHw-10  +AHw-1   +AHw-J3       +AHw-DC+AF8-JACK+AF8-PJ+AF8-002+AHw-              +AHw-                             +AHw-
++AHw-    +AHw-    +AHw-         +AHwAXw-A            +AHw-              +AHw-                             +AHw-
++AHw-11  +AHw-1   +AHw-U9       +AHw-FT232RL+AF8-USART +AHw-              +AHw-                             +AHw-
++AHw-12  +AHw-5   +AHw-D2-6     +AHw-GREENLED+AF8-0603 +AHw-              +AHw-                             +AHw-
++AHw-13  +AHw-2   +AHw-J1-2     +AHw-I2C+AF8-LED+AF8-HEADER+AHw-              +AHw-                             +AHw-
++AHw-14  +AHw-1   +AHw-U2       +AHw-ICSP+AF8-HEADER   +AHw-              +AHw-                             +AHw-
++AHw-15  +AHw-1   +AHw-U4       +AHw-LT6010CS8+AF8-OP+AF8-A+AHw-              +AHw-                             +AHw-
++AHw-    +AHw-    +AHw-         +AHw-MP            +AHw-              +AHw-                             +AHw-
++AHw-16  +AHw-1   +AHw-U3       +AHw-MCP4018+AF8-POT   +AHw-              +AHw-                             +AHw-
++AHw-18  +AHw-5   +AHw-R2 R4-5  +AHw-RES0603,10k   +AHw-IPC SM-782    +AHw-SURFACE MOUNT RESISTOR 0.031 +AHw-
++AHw-    +AHw-    +AHw-R7 R16   +AHw-              +AHw-STD.          +AHw-X 0.061 INCHES, 1/10W        +AHw-
++AHw-19  +AHw-4   +AHw-R9-12    +AHw-RES0603,150   +AHw-IPC SM-782    +AHw-SURFACE MOUNT RESISTOR 0.031 +AHw-
++AHw-    +AHw-    +AHw-         +AHw-              +AHw-STD.          +AHw-X 0.061 INCHES, 1/10W        +AHw-
++AHw-20  +AHw-1   +AHw-R1       +AHw-RES0603,1M    +AHw-IPC SM-782    +AHw-SURFACE MOUNT RESISTOR 0.031 +AHw-
++AHw-    +AHw-    +AHw-         +AHw-              +AHw-STD.          +AHw-X 0.061 INCHES, 1/10W        +AHw-
++AHw-21  +AHw-2   +AHw-R6 R8    +AHw-RES0603,2.4k  +AHw-IPC SM-782    +AHw-SURFACE MOUNT RESISTOR 0.031 +AHw-
++AHw-    +AHw-    +AHw-         +AHw-              +AHw-STD.          +AHw-X 0.061 INCHES, 1/10W        +AHw-
++AHw-22  +AHw-1   +AHw-R15      +AHw-RES0603,4.7k  +AHw-IPC SM-782    +AHw-SURFACE MOUNT RESISTOR 0.031 +AHw-
++AHw-    +AHw-    +AHw-         +AHw-              +AHw-STD.          +AHw-X 0.061 INCHES, 1/10W        +AHw-
++AHw-23  +AHw-1   +AHw-R3       +AHw-RES0603,43k   +AHw-IPC SM-782    +AHw-SURFACE MOUNT RESISTOR 0.031 +AHw-
++AHw-    +AHw-    +AHw-         +AHw-              +AHw-STD.          +AHw-X 0.061 INCHES, 1/10W        +AHw-
++AHw-24  +AHw-1   +AHw-R13      +AHw-RES0603,82    +AHw-IPC SM-782    +AHw-SURFACE MOUNT RESISTOR 0.031 +AHw-
++AHw-    +AHw-    +AHw-         +AHw-              +AHw-STD.          +AHw-X 0.061 INCHES, 1/10W        +AHw-
++AHw-25  +AHw-1   +AHw-U15      +AHw-SERIAL+AF8-LCD+AF8-HEA+AHw-              +AHw-                             +AHw-
++AHw-    +AHw-    +AHw-         +AHw-DER           +AHw-              +AHw-                             +AHw-
++AHw-26  +AHw-3   +AHw-S1-3     +AHw-SWITCH+AF8-TACTILE+AHw-              +AHw-                             +AHw-
++AHw-27  +AHw-1   +AHw-U10      +AHw-TXS2SA-4.5V+AF8-RE+AHw-              +AHw-                             +AHw-
++AHw-    +AHw-    +AHw-         +AHw-LAY           +AHw-              +AHw-                             +AHw-
++AHw-28  +AHw-1   +AHw-USB1     +AHw-USB+AF8-B+AF8-HEADER  +AHw-              +AHw-                             +AHw-
++AHw-29  +AHw-1   +AHw-U8       +AHw-V7805+AF8-500+AF8-SMT+AF8AfA-              +AHw-                             +AHw-
++AHw-    +AHw-    +AHw-         +AHw-DCDC          +AHw-              +AHw-                             +AHw-
++AHw--------------------------------------------------------------------------------+AHw-

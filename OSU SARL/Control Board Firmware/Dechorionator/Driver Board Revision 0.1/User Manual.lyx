@@ -1,0 +1,528 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+
+\series bold
+Dechorionation Table User Manual - Draft
+\end_layout
+
+\begin_layout Standard
+\align center
+Sinhubber Aquatic Research Laboratory
+\end_layout
+
+\begin_layout Standard
+\align center
+Oregon State University
+\end_layout
+
+\begin_layout Standard
+\align center
+Corwin Perren
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part*
+Firmware Rev 1.0
+\end_layout
+
+\begin_layout Section*
+Using the Dechorionator
+\end_layout
+
+\begin_layout Enumerate
+Turn on the Dechorionator using the power switch located on the rear of
+ the unit.
+\end_layout
+
+\begin_layout Enumerate
+Wait until the device has finished powering up and shows the program selection
+ screen.
+\end_layout
+
+\begin_layout Enumerate
+Rotate the selection knob until the desired program is shown.
+\end_layout
+
+\begin_layout Enumerate
+Press the green start button to begin the program.
+\end_layout
+
+\begin_layout Enumerate
+To skip a particular cycle in a program, press the start button.
+\end_layout
+
+\begin_layout Enumerate
+Press the stop button at any time to immediately end the currently running
+ program and return to the selection screen.
+\end_layout
+
+\begin_layout Section*
+Changing Settings
+\end_layout
+
+\begin_layout Enumerate
+Rotate the selection knob until the program containing the settings you
+ would like to modify is shown.
+\end_layout
+
+\begin_layout Enumerate
+Press the knob to enter the settings editor for that program.
+\end_layout
+
+\begin_layout Enumerate
+Rotate the selection knob until the setting you would like to change is
+ shown.
+\end_layout
+
+\begin_layout Enumerate
+Press the knob to enter the setting's edit screen.
+\end_layout
+
+\begin_layout Enumerate
+Rotate the selection knob until the desired value is displayed.
+\end_layout
+
+\begin_layout Enumerate
+Press the knob to save the new value and return to the settings selection
+ screen.
+\end_layout
+
+\begin_layout Enumerate
+Repeat for any other settings you would like to change for the selected
+ program.
+\end_layout
+
+\begin_layout Enumerate
+Saving Settings
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Save settings temporarily (Does not persist through reboots).
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Return to the settings selection screen.
+\end_layout
+
+\begin_layout Enumerate
+Press the stop button or wait for a few seconds for it to timeout.
+\end_layout
+
+\begin_layout Enumerate
+You will be returned to the main program selection screen and any modified
+ settings will be applied until a reboot.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Save settings permanently (Settings will persist through reboots).
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Return to the settings selection screen.
+\end_layout
+
+\begin_layout Enumerate
+Press the start button.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Quotes eld
+\end_inset
+
+Settings Saved Sucessfully
+\begin_inset Quotes erd
+\end_inset
+
+ should display breifly before returning to the main program selection screen.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Section*
+Program Cycle Information and Settings Defaults
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+Note that cycles are in order and motor settings apply to all cycles for
+ a given program.
+\end_layout
+
+\begin_layout Subsubsection*
+Standard Dechorionation Cycles
+\end_layout
+
+\begin_layout Enumerate
+Pronase Cycle 1
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Pronase Cycle 1 - Minutes : 
+\series bold
+6
+\end_layout
+
+\begin_layout Enumerate
+Pronase Cycle 1 - Seconds : 
+\series bold
+30
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Rinse Cycle
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Rinse Cycle - Minutes : 
+\series bold
+1
+\end_layout
+
+\begin_layout Enumerate
+Rinse Cycle - Seconds : 
+\series bold
+0
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Pronase Cycle 2
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Pronase Cycle 2 - Minutes : 
+\series bold
+10
+\end_layout
+
+\begin_layout Enumerate
+Pronase Cycle 2 - Seconds : 
+\series bold
+0
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Motor Settings
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Rotation Speed - Percentage : 
+\series bold
+85
+\end_layout
+
+\begin_layout Enumerate
+Rotation Ramping Percentage : 
+\series bold
+85
+\end_layout
+
+\begin_layout Enumerate
+Pump Speed : 
+\series bold
+50
+\end_layout
+
+\begin_layout Enumerate
+Pump ramp : 
+\series bold
+85
+\end_layout
+
+\end_deeper
+\begin_layout Subsubsection*
+24 Hour Dechorionation Cycles
+\end_layout
+
+\begin_layout Enumerate
+Pronase Cycle 1
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Pronase Cycle 1 - Minutes : 
+\series bold
+3
+\end_layout
+
+\begin_layout Enumerate
+Pronase Cycle 1 - Seconds : 
+\series bold
+0
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Rinse Cycle
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Rinse Cycle - Minutes : 
+\series bold
+1
+\end_layout
+
+\begin_layout Enumerate
+Rinse Cycle - Seconds : 
+\series bold
+0
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Pronase Cycle 2
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Pronase Cycle 2 - Minutes : 
+\series bold
+10
+\end_layout
+
+\begin_layout Enumerate
+Pronase Cycle 2 - Seconds : 
+\series bold
+0
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Motor Settings
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Rotation Speed - Percentage : 
+\series bold
+85
+\end_layout
+
+\begin_layout Enumerate
+Rotation Ramping Percentage : 
+\series bold
+85
+\end_layout
+
+\begin_layout Enumerate
+Pump Speed : 
+\series bold
+50
+\end_layout
+
+\begin_layout Enumerate
+Pump ramp : 
+\series bold
+85
+\end_layout
+
+\end_deeper
+\begin_layout Subsubsection*
+6 Hour HPF Dechorionation Cycles
+\end_layout
+
+\begin_layout Enumerate
+Pronase Cycle 1
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Pronase Cycle 1 - Minutes : 
+\series bold
+6
+\end_layout
+
+\begin_layout Enumerate
+Pronase Cycle 1 - Seconds : 
+\series bold
+30
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Rinse Cycle
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Rinse Cycle - Minutes : 
+\series bold
+1
+\end_layout
+
+\begin_layout Enumerate
+Rinse Cycle - Seconds : 
+\series bold
+0
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Pronase Cycle 2
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Pronase Cycle 2 - Minutes : 
+\series bold
+10
+\end_layout
+
+\begin_layout Enumerate
+Pronase Cycle 2 - Seconds : 
+\series bold
+0
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Motor Settings
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Rotation Speed - Percentage : 
+\series bold
+85
+\end_layout
+
+\begin_layout Enumerate
+Rotation Ramping Percentage : 
+\series bold
+85
+\end_layout
+
+\begin_layout Enumerate
+Pump Speed : 
+\series bold
+50
+\end_layout
+
+\begin_layout Enumerate
+Pump ramp : 
+\series bold
+85
+\end_layout
+
+\end_deeper
+\begin_layout Subsubsection*
+Rinse Cycle
+\end_layout
+
+\begin_layout Enumerate
+Rinse Cycle
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Rinse Cycle - Minutes : 
+\series bold
+1
+\end_layout
+
+\begin_layout Enumerate
+Rinse Cycle - Seconds : 
+\series bold
+0
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Motor Settings
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Pump Speed : 
+\series bold
+50
+\end_layout
+
+\begin_layout Enumerate
+Pump ramp : 
+\series bold
+85
+\end_layout
+
+\end_deeper
+\end_body
+\end_document
