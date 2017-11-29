@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="2c010d92-d65b-4c65-9ba2-168de7fb126a" name="Flip2" url="http://flip2.engr.oregonstate.edu">
+        <fileTransfer host="flip2.engr.oregonstate.edu" port="22" rootFolder="/nfs/stak/students/p/perrenc" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

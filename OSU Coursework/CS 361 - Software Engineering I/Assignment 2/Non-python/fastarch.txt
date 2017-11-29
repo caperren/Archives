@@ -1,0 +1,26 @@
+From an architectural point of view, very little is different between the fast version of kwic and the baseline
+implementation. However, the one architectural difference that is there is significant in terms of speed, the point of
+creating this version in the first place. In the baseline kwic, the code acts almost entirely like a single black box
+block. Data in to data out, all done in pure python. The fast version's biggest gains came from changing a core aspect
+of how some of the loops were being done, in terms that they are now handled by compiled c code rather than running in
+native python. This change was the use of the map function, an alternative to the traditional loop in python.
+While this is an architecturally significant change, as we're now expanding the number of boxes AND languages, is also
+came with the speed benefits of running code in c. This speed jump was most noticeable when used in the function that is
+called as an argument "key" in the alphabetization sort calls. Another place where changes were made that helped
+increase speed, though didn't necessarily change the code architecturally, was in loops where inherited methods were
+called. So, for example, I originally had many loops that called "array_name.append()". This is slow because every time
+the interpreter comes across that line in each loop, it has to process "array_name" to determine whether it contains
+append, and what append is. By aliasing "array_name.append" as a new variable like so "aliased = array_name.append" the
+interpreter only has to perform that lookup once. Then, by replacing the calls in the loop with my alias, I save that
+lookup time for each iteration. While this didn't result in a massive increase like the use of map did, it did help
+enough to mention. A few other minor changes were also made to help shave a couple tenths of a second off here and
+there. There were many places where I was needlessly making copies of large arrays of data, simply to make code
+readability better, but which took both time and ram to accomplish. By streamlining the use of existing variables, I
+again managed to save little bits of time here and there. Now, once it came to enabling listPairs, the other very slow
+part of the code, I decided to change the way that the words were sanitized as that's where the most speed loss was
+found. In the original version, I used a join command on an empty string that stripped out unwanted characters
+essentially rather brute forced. For the fast version, I learned of a way to perform the same task using the python's
+built in translate function. This change nearly halved the time it took for just the listPairs section of the code to
+run. In order to test all of this, I used python's built in cProfile tool which times every user written function call,
+as well as aggregates the times of all python's built in ones, and separately. This made it very easy to see what parts
+of the code needed to be focused on for speed increases.

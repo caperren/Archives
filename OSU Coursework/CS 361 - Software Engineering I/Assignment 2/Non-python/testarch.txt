@@ -1,0 +1,14 @@
+Compared to the original kwic, the testing version of kwic is quite different. The focus of this version was to pull out
+much of the code from the main into functions so that sensitive portions could be easily tested separately, as well as
+be changed more easily. From an architectural point of view, the original kwic is very much a traditional black box
+approach. Data and flags in, one tiny function call used for alphabetization (as I had trouble with it and needed to
+pull it out), and the final data came out. The testing version on the other hand is approximately 25% longer in terms of
+pure code length, and is split into ten separate functions rather than the two for the original kwic. By splitting the
+core features of the kwic system into these functions, it made testing the development of the code that much easier.
+Rather than having to run through all the code up to the point I wanted to test, I could simply only call the functions
+for features I was actively testing. Of course, adding all these extra function calls did affect performance slightly,
+though not as much as I was expecting. This version is only marginally slower than the baseline implementation. I also
+considering adding a flag to kwic that would enable debugging print statements, but I decided against it as (at least
+in my personal experience) adding tons of print statements isn't specifically always helpful. Generally, you only need
+printing for a particular section of code, which could easily be manually added now that the important parts of the code
+are broken out.

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>CS340 Final Website - Corwin Perren</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="app.js"></script>
+    </head>
+
+    <body>
+        <div id="page_header">
+            <h1>CS 340 Robotics Club User Management System</h1>
+        </div>
+        <div>
+            <span id="status_header">Status: </span><span id="header_status_bar"></span>
+        </div>
+        <div>
+            <span id="error_header">Errors: </span><span id="header_error_bar"></span>
+        </div>
+
+        <div id="mem_man_div">
+            <h2>Member Management</h2>
+            <span class="man_row_titles">MEMBER ADD: </span>
+            <span>First: </span><input class="mem_man_text_input" type="text" id="mem_add_first_name">
+            <span>Last: </span><input class="mem_man_text_input" type="text" id="mem_add_last_name">
+            <span>Position: </span><select id="mem_add_position_drop"></select>
+            <span>Superior: </span><select id="mem_add_superior_drop"></select>
+            <span>Email: </span><input class="mem_man_text_input" type="text" id="mem_add_email">
+            <span>Phone #: </span><input class="mem_man_text_input" type="text" id="mem_add_phone">
+            <span>OSU ID: </span><input class="mem_man_text_input" type="number" id="mem_add_osuid">
+            <span>RFID #: </span><input class="mem_man_text_input" type="number" id="mem_add_rfid">
+            <button id="mem_add_submit" type="button">Add</button>
+            <br><br>
+            <span class="man_row_titles">MEMBER DEL: </span>
+            <span>First: </span><input class="mem_man_text_input" type="text" id="mem_del_first_name">
+            <span>Last: </span><input class="mem_man_text_input" type="text" id="mem_del_last_name">
+            <button id="mem_del_submit" type="button">Delete</button>
+            <br><br>
+            <span class="man_row_titles">ASSIGN SKILL: </span>
+            <span>First: </span><input class="mem_man_text_input" type="text" id="assign_skill_first_name">
+            <span>Last: </span><input class="mem_man_text_input" type="text" id="assign_skill_last_name">
+            <span>Skill: </span><select id="assign_skill_position_drop"></select>
+            <button id="assign_skill_submit" type="button">Assign</button>
+            <br><br>
+            <span class="man_row_titles">ADD TO TEAM: </span>
+            <span>First: </span><input class="mem_man_text_input" type="text" id="add_team_first_name">
+            <span>Last: </span><input class="mem_man_text_input" type="text" id="add_team_last_name">
+            <span>Team: </span><select id="add_team_position_drop"></select>
+            <button id="add_team_submit" type="button">Add</button>
+        </div>
+
+        <div id="infra_man_div">
+            <h2>Infrastructure Management</h2>
+            <span class="man_row_titles">SKILL ADD: </span>
+            <span>Name: </span><input class="mem_man_text_input" type="text" id="skill_add_name">
+            <span>Description: </span><input class="mem_man_text_input" type="text" id="skill_add_description">
+            <button id="skill_add_submit" type="button">Add</button>
+            <br><br>
+            <span class="man_row_titles">TEAM ADD: </span>
+            <span>Name: </span><input class="mem_man_text_input" type="text" id="team_add_name">
+            <span>Description: </span><input class="mem_man_text_input" type="text" id="team_add_description">
+            <button id="team_add_submit" type="button">Add</button>
+            <br><br>
+            <span class="man_row_titles">POSITION ADD: </span>
+            <span>Name: </span><input class="mem_man_text_input" type="text" id="position_add_name">
+            <span>Description: </span><input class="mem_man_text_input" type="text" id="position_add_description">
+            <button id="position_add_submit" type="button">Add</button>
+        </div>
+
+        <div id="queries_div">
+            <h2>Display Controls</h2>
+            <div id="queries_left">
+                <span class="man_row_titles">SHOW MEMBERS: </span>
+                <button id="show_members_submit" type="button">SHOW</button>
+                <br><br>
+                <span class="man_row_titles">SHOW SKILLS: </span>
+                <button id="show_skills_submit" type="button">SHOW</button>
+                <br><br>
+                <span class="man_row_titles">SHOW TEAMS: </span>
+                <button id="show_teams_submit" type="button">SHOW</button>
+                <br><br>
+                <span class="man_row_titles">SHOW POSITIONS: </span>
+                <button id="show_positions_submit" type="button">SHOW</button>
+            </div>
+            <div id="queries_right">
+                <br><br>
+                <span class="man_row_titles">FIND MEMBERS WITH SKILL: </span>
+                <span>Skill: </span><select id="show_with_skill_drop"></select>
+                <button id="skill_search_submit" type="button">SEARCH</button>
+                <br><br>
+                <span class="man_row_titles">FIND MEMBERS WITH TEAM: </span>
+                <span>Team: </span><select id="show_with_team_drop"></select>
+                <button id="team_search_submit" type="button">SEARCH</button>
+                <br><br>
+                <span class="man_row_titles">FIND MEMBERS WITH POSITION: </span>
+                <span>Position: </span><select id="show_with_position_drop"></select>
+                <button id="position_search_submit" type="button">SEARCH</button>
+            </div>
+        </div>
+        <div id="main_output_div">
+            <div id="main_output_content">
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,326 @@
+==================================================
+INPUT: "Design is hard.\nLet's just implement."
+OUTPUT:
+[(['Design', 'is', 'hard.'], 0),
+ (['hard.', 'Design', 'is'], 0),
+ (['implement.', "Let's", 'just'], 1),
+ (['is', 'hard.', 'Design'], 0),
+ (['just', 'implement.', "Let's"], 1),
+ (["Let's", 'just', 'implement.'], 1)]
+
+==================================================
+INPUT: "Design is hard.\nLet's just implement.", ignoreWords=["is"]
+OUTPUT:
+[(['Design', 'is', 'hard.'], 0),
+ (['hard.', 'Design', 'is'], 0),
+ (['implement.', "Let's", 'just'], 1),
+ (['just', 'implement.', "Let's"], 1),
+ (["Let's", 'just', 'implement.'], 1)]
+
+==================================================
+INPUT: "Design is hard.\nLet's just implement.", ignoreWords=["is"], listPairs=True
+OUTPUT:
+([(['Design', 'is', 'hard.'], 0),
+  (['hard.', 'Design', 'is'], 0),
+  (['implement.', "Let's", 'just'], 1),
+  (['just', 'implement.', "Let's"], 1),
+  (["Let's", 'just', 'implement.'], 1)],
+ [])
+
+==================================================
+INPUT: "Hello there.\nHello there, buddy.\nHello and goodbye, buddy.\nHello is like buddy Goodbye!", listPairs=True
+OUTPUT:
+([(['and', 'goodbye,', 'buddy.', 'Hello'], 2),
+  (['buddy', 'Goodbye!', 'Hello', 'is', 'like'], 3),
+  (['buddy.', 'Hello', 'and', 'goodbye,'], 2),
+  (['buddy.', 'Hello', 'there,'], 1),
+  (['Goodbye!', 'Hello', 'is', 'like', 'buddy'], 3),
+  (['goodbye,', 'buddy.', 'Hello', 'and'], 2),
+  (['Hello', 'and', 'goodbye,', 'buddy.'], 2),
+  (['Hello', 'is', 'like', 'buddy', 'Goodbye!'], 3),
+  (['Hello', 'there,', 'buddy.'], 1),
+  (['Hello', 'there.'], 0),
+  (['is', 'like', 'buddy', 'Goodbye!', 'Hello'], 3),
+  (['like', 'buddy', 'Goodbye!', 'Hello', 'is'], 3),
+  (['there,', 'buddy.', 'Hello'], 1),
+  (['there.', 'Hello'], 0)],
+ [(('buddy', 'goodbye'), 2),
+  (('buddy', 'hello'), 3),
+  (('goodbye', 'hello'), 2),
+  (('hello', 'there'), 2)])
+
+==================================================
+INPUT: "Hello there.  Hello there, buddy.    Hello and goodbye, buddy. Hello is like buddy Goodbye!", listPairs=True, periodsToBreaks=True
+OUTPUT:
+([(['and', 'goodbye,', 'buddy.', 'Hello'], 2),
+  (['buddy', 'Goodbye!', 'Hello', 'is', 'like'], 3),
+  (['buddy.', 'Hello', 'and', 'goodbye,'], 2),
+  (['buddy.', 'Hello', 'there,'], 1),
+  (['Goodbye!', 'Hello', 'is', 'like', 'buddy'], 3),
+  (['goodbye,', 'buddy.', 'Hello', 'and'], 2),
+  (['Hello', 'and', 'goodbye,', 'buddy.'], 2),
+  (['Hello', 'is', 'like', 'buddy', 'Goodbye!'], 3),
+  (['Hello', 'there,', 'buddy.'], 1),
+  (['Hello', 'there.'], 0),
+  (['is', 'like', 'buddy', 'Goodbye!', 'Hello'], 3),
+  (['like', 'buddy', 'Goodbye!', 'Hello', 'is'], 3),
+  (['there,', 'buddy.', 'Hello'], 1),
+  (['there.', 'Hello'], 0)],
+ [(('buddy', 'goodbye'), 2),
+  (('buddy', 'hello'), 3),
+  (('goodbye', 'hello'), 2),
+  (('hello', 'there'), 2)])
+
+==================================================
+INPUT: ". . a"
+OUTPUT:
+[(['.', '.', 'a'], 0), (['.', 'a', '.'], 0), (['a', '.', '.'], 0)]
+
+==================================================
+INPUT: ". . a", periodsToBreaks=True
+OUTPUT:
+[(['.', '.', 'a'], 0), (['.', 'a', '.'], 0), (['a', '.', '.'], 0)]
+
+==================================================
+INPUT: ". A B\n. A B C\n. A B C D", listPairs=True
+OUTPUT:
+([(['.', 'A', 'B'], 0),
+  (['.', 'A', 'B', 'C'], 1),
+  (['.', 'A', 'B', 'C', 'D'], 2),
+  (['A', 'B', '.'], 0),
+  (['A', 'B', 'C', '.'], 1),
+  (['A', 'B', 'C', 'D', '.'], 2),
+  (['B', '.', 'A'], 0),
+  (['B', 'C', '.', 'A'], 1),
+  (['B', 'C', 'D', '.', 'A'], 2),
+  (['C', '.', 'A', 'B'], 1),
+  (['C', 'D', '.', 'A', 'B'], 2),
+  (['D', '.', 'A', 'B', 'C'], 2)],
+ [(('a', 'b'), 3), (('a', 'c'), 2), (('b', 'c'), 2)])
+
+==================================================
+INPUT: "Hello world. This is a test\nhopefully it turns out okay", periodsToBreaks = True
+OUTPUT:
+[(['a', 'test', 'hopefully', 'it', 'turns', 'out', 'okay', 'This', 'is'], 1),
+ (['Hello', 'world.'], 0),
+ (['hopefully', 'it', 'turns', 'out', 'okay', 'This', 'is', 'a', 'test'], 1),
+ (['is', 'a', 'test', 'hopefully', 'it', 'turns', 'out', 'okay', 'This'], 1),
+ (['it', 'turns', 'out', 'okay', 'This', 'is', 'a', 'test', 'hopefully'], 1),
+ (['okay', 'This', 'is', 'a', 'test', 'hopefully', 'it', 'turns', 'out'], 1),
+ (['out', 'okay', 'This', 'is', 'a', 'test', 'hopefully', 'it', 'turns'], 1),
+ (['test', 'hopefully', 'it', 'turns', 'out', 'okay', 'This', 'is', 'a'], 1),
+ (['This', 'is', 'a', 'test', 'hopefully', 'it', 'turns', 'out', 'okay'], 1),
+ (['turns', 'out', 'okay', 'This', 'is', 'a', 'test', 'hopefully', 'it'], 1),
+ (['world.', 'Hello'], 0)]
+
+==================================================
+INPUT: "It's very nice to be footloose. \nWith just a toothbrush and a comb.\n"
+OUTPUT:
+[(['a', 'comb.', 'With', 'just', 'a', 'toothbrush', 'and'], 1),
+ (['a', 'toothbrush', 'and', 'a', 'comb.', 'With', 'just'], 1),
+ (['and', 'a', 'comb.', 'With', 'just', 'a', 'toothbrush'], 1),
+ (['be', 'footloose.', "It's", 'very', 'nice', 'to'], 0),
+ (['comb.', 'With', 'just', 'a', 'toothbrush', 'and', 'a'], 1),
+ (['footloose.', "It's", 'very', 'nice', 'to', 'be'], 0),
+ (["It's", 'very', 'nice', 'to', 'be', 'footloose.'], 0),
+ (['just', 'a', 'toothbrush', 'and', 'a', 'comb.', 'With'], 1),
+ (['nice', 'to', 'be', 'footloose.', "It's", 'very'], 0),
+ (['to', 'be', 'footloose.', "It's", 'very', 'nice'], 0),
+ (['toothbrush', 'and', 'a', 'comb.', 'With', 'just', 'a'], 1),
+ (['very', 'nice', 'to', 'be', 'footloose.', "It's"], 0),
+ (['With', 'just', 'a', 'toothbrush', 'and', 'a', 'comb.'], 1)]
+
+==================================================
+INPUT: "It's very nice to be footloose. \nWith just a toothbrush and a comb.\n", periodsToBreaks=True
+OUTPUT:
+[(['a', 'comb.', 'With', 'just', 'a', 'toothbrush', 'and'], 1),
+ (['a', 'toothbrush', 'and', 'a', 'comb.', 'With', 'just'], 1),
+ (['and', 'a', 'comb.', 'With', 'just', 'a', 'toothbrush'], 1),
+ (['be', 'footloose.', "It's", 'very', 'nice', 'to'], 0),
+ (['comb.', 'With', 'just', 'a', 'toothbrush', 'and', 'a'], 1),
+ (['footloose.', "It's", 'very', 'nice', 'to', 'be'], 0),
+ (["It's", 'very', 'nice', 'to', 'be', 'footloose.'], 0),
+ (['just', 'a', 'toothbrush', 'and', 'a', 'comb.', 'With'], 1),
+ (['nice', 'to', 'be', 'footloose.', "It's", 'very'], 0),
+ (['to', 'be', 'footloose.', "It's", 'very', 'nice'], 0),
+ (['toothbrush', 'and', 'a', 'comb.', 'With', 'just', 'a'], 1),
+ (['very', 'nice', 'to', 'be', 'footloose.', "It's"], 0),
+ (['With', 'just', 'a', 'toothbrush', 'and', 'a', 'comb.'], 1)]
+
+==================================================
+INPUT: "hello here, hello there, hello everywhere",listPairs = True
+OUTPUT:
+([(['everywhere', 'hello', 'here,', 'hello', 'there,', 'hello'], 0),
+  (['hello', 'everywhere', 'hello', 'here,', 'hello', 'there,'], 0),
+  (['hello', 'here,', 'hello', 'there,', 'hello', 'everywhere'], 0),
+  (['hello', 'there,', 'hello', 'everywhere', 'hello', 'here,'], 0),
+  (['here,', 'hello', 'there,', 'hello', 'everywhere', 'hello'], 0),
+  (['there,', 'hello', 'everywhere', 'hello', 'here,', 'hello'], 0)],
+ [])
+
+==================================================
+INPUT: "hello here\nhello here again\nhello again", listPairs=True
+OUTPUT:
+([(['again', 'hello'], 2),
+  (['again', 'hello', 'here'], 1),
+  (['hello', 'again'], 2),
+  (['hello', 'here'], 0),
+  (['hello', 'here', 'again'], 1),
+  (['here', 'again', 'hello'], 1),
+  (['here', 'hello'], 0)],
+ [(('again', 'hello'), 2), (('hello', 'here'), 2)])
+
+==================================================
+INPUT: "hello hello hello\nhello hello", listPairs=True
+OUTPUT:
+([(['hello', 'hello'], 1),
+  (['hello', 'hello'], 1),
+  (['hello', 'hello', 'hello'], 0),
+  (['hello', 'hello', 'hello'], 0),
+  (['hello', 'hello', 'hello'], 0)],
+ [])
+
+==================================================
+INPUT: "to be or not to be", listPairs=True
+OUTPUT:
+([(['be', 'or', 'not', 'to', 'be', 'to'], 0),
+  (['be', 'to', 'be', 'or', 'not', 'to'], 0),
+  (['not', 'to', 'be', 'to', 'be', 'or'], 0),
+  (['or', 'not', 'to', 'be', 'to', 'be'], 0),
+  (['to', 'be', 'or', 'not', 'to', 'be'], 0),
+  (['to', 'be', 'to', 'be', 'or', 'not'], 0)],
+ [])
+
+==================================================
+INPUT: ". A B\n. A B C\n. A B C D", listPairs=True
+OUTPUT:
+([(['.', 'A', 'B'], 0),
+  (['.', 'A', 'B', 'C'], 1),
+  (['.', 'A', 'B', 'C', 'D'], 2),
+  (['A', 'B', '.'], 0),
+  (['A', 'B', 'C', '.'], 1),
+  (['A', 'B', 'C', 'D', '.'], 2),
+  (['B', '.', 'A'], 0),
+  (['B', 'C', '.', 'A'], 1),
+  (['B', 'C', 'D', '.', 'A'], 2),
+  (['C', '.', 'A', 'B'], 1),
+  (['C', 'D', '.', 'A', 'B'], 2),
+  (['D', '.', 'A', 'B', 'C'], 2)],
+ [(('a', 'b'), 3), (('a', 'c'), 2), (('b', 'c'), 2)])
+
+==================================================
+INPUT: "a bad\ncat barks."
+OUTPUT:
+[(['a', 'bad'], 0),
+ (['bad', 'a'], 0),
+ (['barks.', 'cat'], 1),
+ (['cat', 'barks.'], 1)]
+
+==================================================
+INPUT: "This is not a sentence.\nNeither is this.",ignoreWords=["is."]
+OUTPUT:
+[(['a', 'sentence.', 'This', 'is', 'not'], 0),
+ (['is', 'not', 'a', 'sentence.', 'This'], 0),
+ (['is', 'this.', 'Neither'], 1),
+ (['Neither', 'is', 'this.'], 1),
+ (['not', 'a', 'sentence.', 'This', 'is'], 0),
+ (['sentence.', 'This', 'is', 'not', 'a'], 0),
+ (['This', 'is', 'not', 'a', 'sentence.'], 0),
+ (['this.', 'Neither', 'is'], 1)]
+
+==================================================
+INPUT: "This is not a sentence.\nNeither is this.",ignoreWords=["is"]
+OUTPUT:
+[(['a', 'sentence.', 'This', 'is', 'not'], 0),
+ (['Neither', 'is', 'this.'], 1),
+ (['not', 'a', 'sentence.', 'This', 'is'], 0),
+ (['sentence.', 'This', 'is', 'not', 'a'], 0),
+ (['This', 'is', 'not', 'a', 'sentence.'], 0),
+ (['this.', 'Neither', 'is'], 1)]
+
+==================================================
+INPUT: "hello hello\nhello hello"
+OUTPUT:
+[(['hello', 'hello'], 0),
+ (['hello', 'hello'], 0),
+ (['hello', 'hello'], 1),
+ (['hello', 'hello'], 1)]
+
+==================================================
+INPUT: "#!good morning", ignoreWords = ['!good']
+OUTPUT:
+[(['#!good', 'morning'], 0), (['morning', '#!good'], 0)]
+
+==================================================
+INPUT: "go!od morning-!", ignoreWords = ['good']
+OUTPUT:
+[(['morning-!', 'go!od'], 0)]
+
+==================================================
+INPUT: "#!good morning-!", ignoreWords = ['!GoOd']
+OUTPUT:
+[(['#!good', 'morning-!'], 0), (['morning-!', '#!good'], 0)]
+
+==================================================
+INPUT: "?!good morning-!", ignoreWords = ['!GoOd']
+OUTPUT:
+[(['?!good', 'morning-!'], 0), (['morning-!', '?!good'], 0)]
+
+==================================================
+INPUT: "?!go!!!od morning-!", ignoreWords = ['!GoOd']
+OUTPUT:
+[(['?!go!!!od', 'morning-!'], 0), (['morning-!', '?!go!!!od'], 0)]
+
+==================================================
+INPUT: 'This pair? is good.\n So is this pair and that pair',listPairs=True
+OUTPUT:
+([(['and', 'that', 'pair', 'So', 'is', 'this', 'pair'], 1),
+  (['good.', 'This', 'pair?', 'is'], 0),
+  (['is', 'good.', 'This', 'pair?'], 0),
+  (['is', 'this', 'pair', 'and', 'that', 'pair', 'So'], 1),
+  (['pair', 'and', 'that', 'pair', 'So', 'is', 'this'], 1),
+  (['pair', 'So', 'is', 'this', 'pair', 'and', 'that'], 1),
+  (['pair?', 'is', 'good.', 'This'], 0),
+  (['So', 'is', 'this', 'pair', 'and', 'that', 'pair'], 1),
+  (['that', 'pair', 'So', 'is', 'this', 'pair', 'and'], 1),
+  (['this', 'pair', 'and', 'that', 'pair', 'So', 'is'], 1),
+  (['This', 'pair?', 'is', 'good.'], 0)],
+ [(('is', 'pair'), 2), (('is', 'this'), 2), (('pair', 'this'), 2)])
+
+==================================================
+INPUT: "CS is cool"
+OUTPUT:
+[(['cool', 'CS', 'is'], 0),
+ (['CS', 'is', 'cool'], 0),
+ (['is', 'cool', 'CS'], 0)]
+
+==================================================
+INPUT: "a b\na b c\na b c d", listPairs=True
+OUTPUT:
+([(['a', 'b'], 0),
+  (['a', 'b', 'c'], 1),
+  (['a', 'b', 'c', 'd'], 2),
+  (['b', 'a'], 0),
+  (['b', 'c', 'a'], 1),
+  (['b', 'c', 'd', 'a'], 2),
+  (['c', 'a', 'b'], 1),
+  (['c', 'd', 'a', 'b'], 2),
+  (['d', 'a', 'b', 'c'], 2)],
+ [(('a', 'b'), 3), (('a', 'c'), 2), (('b', 'c'), 2)])
+
+==================================================
+INPUT: 'This pair? is good.\n So is this pair and that pair', listPairs=True
+OUTPUT:
+([(['and', 'that', 'pair', 'So', 'is', 'this', 'pair'], 1),
+  (['good.', 'This', 'pair?', 'is'], 0),
+  (['is', 'good.', 'This', 'pair?'], 0),
+  (['is', 'this', 'pair', 'and', 'that', 'pair', 'So'], 1),
+  (['pair', 'and', 'that', 'pair', 'So', 'is', 'this'], 1),
+  (['pair', 'So', 'is', 'this', 'pair', 'and', 'that'], 1),
+  (['pair?', 'is', 'good.', 'This'], 0),
+  (['So', 'is', 'this', 'pair', 'and', 'that', 'pair'], 1),
+  (['that', 'pair', 'So', 'is', 'this', 'pair', 'and'], 1),
+  (['this', 'pair', 'and', 'that', 'pair', 'So', 'is'], 1),
+  (['This', 'pair?', 'is', 'good.'], 0)],
+ [(('is', 'pair'), 2), (('is', 'this'), 2), (('pair', 'this'), 2)])
+

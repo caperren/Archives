@@ -1,0 +1,39 @@
+begin: waitForStart
+
+state: waitForStart
+callConstructor -> idle
+
+state: idle
+callAddText -> idle
+callIndex -> processIndex
+callListPairs -> processListPairs
+callReset -> idle
+callCreateListPairs -> idle
+
+state: processIndex
+callProcessIndex -> checkIfText
+
+state: checkIfText
+callSplitPeriods -> splitIntoTuples
+processNewlineSplit -> splitIntoTuples
+processNoNewText -> idle
+
+state: splitIntoTuples
+callSplitAsTuples -> fillCircular
+
+state: fillCircular
+callFillCircular -> checkIgnoreOrAlpha
+
+state: checkIgnoreOrAlpha
+callAlphabetize -> idle
+callRemoveWords -> removingWords
+
+state: removingWords
+callAlphabetize -> idle
+
+state: processListPairs
+callProcessListPairs -> listPairsIndexOrList
+
+state: listPairsIndexOrList
+callProcessIndex -> checkIfText
+callCreateListPairs -> idle

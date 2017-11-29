@@ -1,0 +1,58 @@
+table>caption{
+    font-weight: bold;
+}
+
+table, th, td {
+    border-collapse: collapse;
+    border: 1px solid black;
+    text-align: left;
+    padding: 5px;
+
+}
+
+tbody>tr>th{
+    font-weight: normal;
+    font-style: italic;
+}
+
+tbody>tr:nth-of-type(even) {
+    background-color: lightsalmon;
+}
+
+tbody>tr:nth-of-type(odd) {
+    background-color: lightgreen;
+}
+
+.inner-content {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: lightblue;
+    text-align: center;
+}
+
+.outer-content {
+    float: left;
+    width: 75%;
+    background-color: pink;
+    margin-top: 20px;
+    
+}
+
+.post-div{
+    margin-top: 100px;
+    clear: both;
+}
+
+.get-div{
+    margin-top: 20px;
+}
+
+form>fieldset{
+    margin: 5px;
+}
+
+input[type="submit"]{
+    margin-left: 5px;
+    margin-top: 15px;
+}

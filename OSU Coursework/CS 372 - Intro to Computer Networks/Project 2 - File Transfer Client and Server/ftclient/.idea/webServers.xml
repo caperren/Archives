@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="ssh://perrenc@flip2.engr.oregonstate.edu:22/usr/bin/python3" name="ssh://perrenc@flip2.engr.oregonstate.edu:22/usr/bin/python3">
+        <fileTransfer host="flip2.engr.oregonstate.edu" port="22" rootFolder="/nfs/stak/students/p/perrenc" accessType="SFTP">
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

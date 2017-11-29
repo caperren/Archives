@@ -1,0 +1,31 @@
+1. How did you decide what to test first? Would your final code change significantly if you changed the order of tests?
+
+The process for deciding what to test mostly had to do with a logical breakdown of the core parts of the code so that
+things that relied on others to work were done after those pre-requisites. So, for example, before we could do anything
+first the document had to be broken down into sentences, then words. In that part, you could also change whether or not
+the sentence breaks were handled with newlines or periods. Afterwards, you could then deal with rearranging the words as
+necessary, handling determining pairs, and then excluding any words that were given as arguments. I don't feel like the
+code would have been massively different if it'd been done in reverse, but it definitely would have been more difficult
+to write. On top of that, you'd still have to think all the way through how the code would need to function, regardless
+of the order in which you wrote it, in order to know what needed to be written in the first place. Also, if you
+literally reversed the order of the tests, it could lead to you skipping the whole point of using tests (if you did it
+incorrectly). Again, for an example, if you wrote a test that produced the final output of the program as the initial
+input and expected a correct output, you'd either have to hard code many many values in to the resulting code while you
+implemented them for real, or you'd end up writing all necessary code at once, which would defeat the purpose.
+
+2. What did you think of test driven development, for this problem? What are the strengths and weaknesses of the
+approach? Does it encourage/discourage certain kinds of program designs?
+
+I'm torn about it. I feel that for this particular problem, it may have been overkill and actually hampered design
+progress at times. The main issue was that for each major step, the output of the code often changed enough that many
+of the tests had to be modified or rewritten to match. The definite strengths of this approach are that you can easily
+tell when you change something that breaks the functionality of your code, and it will immediately produce an exception.
+On the flip side, it does take much longer to write functional code depend on what exactly you're writing. I would
+argue that the larger the application being written, the more important it would be to do this kind of testing.
+Without it, you might be digging through hundreds of thousands to millions of lines of code to figure out what is
+breaking. I can definitely appreciate the fact that taking the time to write the tests helps guarantee that it's doing
+what you want, but I feel like it would be more useful in other programming contexts, like the one just mentioned.
+I'd say this style of coding encourages program designs that have a consistent output even if the underlying code
+changes often. For example, I feel like it'd be ideal for developing an API where once a standard has been created,
+that API should function identically for a long time, even if the backend is changing constantly. In general, this way
+of programming also encourages full coverage of edge cases, as you'll easily and quickly be able to test for them.

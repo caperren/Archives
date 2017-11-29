@@ -1,0 +1,20 @@
+- One version that has improved performance, and one to improve testability
+- Performance
+-- Faster by a good marging than the baseline version
+- Testability
+-- Make it easier to control and/or observe the behavior of the system
+-- Ideas
+--- Interfaces for controlling internal variables
+--- Copious assertions
+--- Limiting complexity
+--- Changes that make the code timing more consistent
+
+
+- Files (put in folder named perrenc361assign2.zip)
+-- kwic.py : baseline version
+-- fastkwic.py : better performance version
+-- fastarch.txt : describes changes in architectural terms that made faster, and how you tested this (400 words)
+-- fastarch.pdf : diagram of architecture
+-- testkwic.py : highly testable version of kwic
+-- testarch.txt : describes changes in architectural terms that made it more testable (200 words)
+-- testarch.pdf : diagram of architecture

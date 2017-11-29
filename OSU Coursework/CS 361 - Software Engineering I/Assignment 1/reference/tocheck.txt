@@ -1,0 +1,29 @@
+"Design is hard.\nLet's just implement."
+"Design is hard.\nLet's just implement.", ignoreWords=["is"]
+"Design is hard.\nLet's just implement.", ignoreWords=["is"], listPairs=True
+"Hello there.\nHello there, buddy.\nHello and goodbye, buddy.\nHello is like buddy Goodbye!", listPairs=True
+"Hello there.  Hello there, buddy.    Hello and goodbye, buddy. Hello is like buddy Goodbye!", listPairs=True, periodsToBreaks=True
+". . a"
+". . a", periodsToBreaks=True
+". A B\n. A B C\n. A B C D", listPairs=True
+"Hello world. This is a test\nhopefully it turns out okay", periodsToBreaks = True
+"It's very nice to be footloose. \nWith just a toothbrush and a comb.\n"
+"It's very nice to be footloose. \nWith just a toothbrush and a comb.\n", periodsToBreaks=True
+"hello here, hello there, hello everywhere",listPairs = True
+"hello here\nhello here again\nhello again", listPairs=True
+"hello hello hello\nhello hello", listPairs=True
+"to be or not to be", listPairs=True
+". A B\n. A B C\n. A B C D", listPairs=True
+"a bad\ncat barks."
+"This is not a sentence.\nNeither is this.",ignoreWords=["is."]
+"This is not a sentence.\nNeither is this.",ignoreWords=["is"]
+"hello hello\nhello hello"
+"#!good morning", ignoreWords = ['!good']
+"go!od morning-!", ignoreWords = ['good']
+"#!good morning-!", ignoreWords = ['!GoOd']
+"?!good morning-!", ignoreWords = ['!GoOd']
+"?!go!!!od morning-!", ignoreWords = ['!GoOd']
+'This pair? is good.\n So is this pair and that pair',listPairs=True
+"CS is cool"
+"a b\na b c\na b c d", listPairs=True
+'This pair? is good.\n So is this pair and that pair', listPairs=True

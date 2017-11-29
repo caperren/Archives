@@ -1,0 +1,235 @@
+#!/bin/bash
+########## Programmer Info ############
+# Name: Corwin Perren
+# OSU ID: 931759527
+# Assignment: Assignment 1 - stats
+# Filename: stats
+
+########## Global Variables ############
+# Used for transposing the axis on a two dimensional array
+awk_transpose='{
+    for ( i=1; i <= NF; i++ )
+        row[i] = row[i]((row[i])?" ":"")$i
+}
+
+END{
+    for ( x = 1; x <= length(row) ; x++ )
+        print row[x]
+}'
+
+# Used to properly round the floating point values
+awk_proper_rounding='
+    {printf("%d\n",$1 + 0.5)}
+'
+
+# Stores the PID used to name and delete temp files
+master_pid=$!
+
+########## Functions ###########
+# Error function for when user input is wrong
+show_usage_error ()
+{
+    echo "Usage: stats {-rows|-cols} [file]" >&2
+    exit 1
+}
+
+# Error function for when a user feeds in an empty file
+show_empty_file_error ()
+{
+    echo "stats: Input empty. Please provide valid input." >&2
+    exit 1
+}
+
+# Error function for when the file doesn't exist or can't be accessed
+show_invalid_file_error ()
+{
+    echo "stats: Cannot read file. Please verify file exists or check permissions." >&2
+    exit 1
+}
+
+# Function to delete temporary files
+remove_temp_if_exist ()
+{
+    rm -f ${master_pid}"_"transposed
+    rm -f ${master_pid}"_"temp
+}
+
+# Function to handle file cleanup and returning an error when an interrupt happens
+handle_unexpected_termination_error ()
+{
+    remove_temp_if_exist
+    echo "CTRL+C received. Exiting." >&2
+    exit 1
+}
+
+#####################################################
+#####################################################
+########## "stats" script "main"-ish code ###########
+
+# Handle unexpected termination
+trap handle_unexpected_termination_error INT HUP TERM
+
+# Determine if we're getting data from stdin or a file, error if neither
+if [ $# -eq 0 ] || [ $# -gt 2 ]; then
+    show_usage_error
+elif [ $# -eq 1 ]; then
+    is_stdin=1
+elif [ $# -eq 2 ]; then
+    is_stdin=0
+fi
+
+# Determine if we're doing statistics based on columns or rows, error if neither
+if [[ $1 == -r* ]]; then
+    is_rows=1
+elif [[ $1 == -c* ]]; then
+    is_rows=0
+else
+    show_usage_error
+fi
+
+# If the input is a file, make sure we can open it and that it exists
+if [ ${is_stdin} -eq 0 ]; then
+    if [ ! -e $2 ] || [ ! -r $2 ] || [ ! -f $2 ]; then
+        show_invalid_file_error
+    fi
+fi
+
+# If stats should be on columns, transpose the table so the columns are the new rows and rows are the new columns
+# This will make it so the same stats math can be used to generate the correct data
+# If the data is coming from stdin and needs to be columns, it makes a temp file, stores the data in it, and then
+# transposes it just as if it were a file being fed in as an argument
+# If the flags here are anything but a standard in piping with rows, it opens the file with a file descriptor for access
+# This also handles showing an error if the input from stdin with -cols is empty
+if [ ${is_rows} -eq 0 ] && [ ${is_stdin} -eq 0 ]; then
+    cat $2 | awk "${awk_transpose}" > ${master_pid}"_"transposed
+    exec 3<> ${master_pid}"_"transposed
+elif [ ${is_rows} -eq 0 ] && [ ${is_stdin} -eq 1 ]; then
+    line_count=0
+    while read current_line
+    do
+        echo -e ${current_line} >> ${master_pid}"_"temp
+        ((line_count = line_count + 1))
+    done
+
+    if [ ${line_count} -eq 0 ]; then
+        show_empty_file_error
+    fi
+
+    cat ${master_pid}"_"temp | awk "${awk_transpose}" > ${master_pid}"_"transposed
+    exec 3<> ${master_pid}"_"transposed
+    is_stdin=0
+
+elif [ ${is_rows} -eq 1 ] && [ ${is_stdin} -eq 0 ]; then
+    exec 3<> $2
+fi
+
+# Now we perform the stats math operations on the data
+line_count=0
+declare -a averages
+declare -a medians
+
+while [ 1 ];
+do
+    # We read in the current line
+    if [ ${is_stdin} -eq 1 ]; then
+        read current_line
+    else
+        read -u 3 current_line
+    fi
+
+    # Here we get the result code from read, which tells us if there's data left
+    read_result=$?
+
+    # If there was no data, and we haven't looped yet, the file is empty and we error
+    # Otherwise, it means we've reached the end of the file and it's time to leave the loop
+    if [ ${read_result} -eq 1 ] && [ ${line_count} -eq 0 ]; then
+        show_empty_file_error
+    elif [ ${read_result} -eq 1 ]; then
+        break
+    fi
+
+    # Initialize variables for doing the calculations
+    sum=0
+    count=0
+    avg=0
+    newline="\n"
+    numbers_string=""
+
+    # This part does the summing and adds the numbers to a new string so it can be parsed by sort
+    for word in ${current_line}
+    do
+        numbers_string=${numbers_string}${newline}${word}
+        ((sum = word + sum))
+        ((count = count + 1))
+    done
+
+    # Here we use bc and awk to handle the floating point results of division and proper rounding
+    # The avg then gets added to the average array for display later
+    avg=$(echo "(${sum}/${count})" | bc -l | awk "${awk_proper_rounding}")
+    averages[${line_count}]=${avg}
+
+    # Now the new string we created is sorted numerically so we can easily find the median
+    sorted=$(echo -e ${numbers_string} | sort -n)
+
+    # Then we find and add the median number to our medians array
+    i=0
+    for word in ${sorted}
+    do
+        if [ ${i} == $(((count/2))) ]; then
+            medians[${line_count}]=${word}
+            break
+        fi
+        ((i = i + 1))
+    done
+
+    # Here we increment our line count so we can properly handle empty files
+    ((line_count = line_count + 1))
+done
+
+# For rows display, we print out the header then one value from averages and count, separated by tabs
+if [ ${is_rows} -eq 1 ]; then
+    echo -e "Average\tMedian"
+
+    count=0
+    for word in ${averages[*]}
+    do
+        echo -e "${averages[count]}\t${medians[count]}"
+        ((count = count + 1))
+    done
+# For cols display, we print a header, then all the contents of average, another header, and the contents of median
+# Takes a little more work to print this one and not have extra tabs left over
+else
+    echo -e "Averages:"
+    first=1
+    for word in ${averages[*]}
+    do
+        if [ ${first} -eq 1 ]; then
+            echo -e -n "${word}"
+            first=0
+        else
+            echo -e -n "\t${word}"
+        fi
+        ((count = count + 1))
+    done
+    echo
+
+    echo -e "Medians:"
+    first=1
+    for word in ${medians[*]}
+    do
+        if [ ${first} -eq 1 ]; then
+            echo -e -n "${word}"
+            first=0
+        else
+            echo -e -n "\t${word}"
+        fi
+        ((count = count + 1))
+    done
+    echo
+fi
+
+# Assuming we make it this far, the trap handler will not have taken care of our temp files, so we do that now
+remove_temp_if_exist
+
+# Again, having made it this far the program has completed successfully. Exit with no error.
+exit 0

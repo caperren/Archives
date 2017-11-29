@@ -1,0 +1,84 @@
+# eventkwic.txt by Corwin Perren
+
+###########################################
+########## Specification Writeup ##########
+###########################################
+My specification for the Kwic class is as follows. Once Kwic is constructed, it waits for a method call. If no text has
+been added to the implementation and either index or listPairs is called, they will return empty arrays. Once text is
+added using addText, that text is appended to a class variable as one long string. It is done this way to make sure that
+lines that may be broken up into multiple addText calls still work properly. Now that there is text to process, a call
+to index will process the whole string that's been stored and return the proper kwic index. If listPairs is called
+instead, it will internally run index, but not return the indexed data, so that the new text is processed. It then
+creates the pairs and returns the array. Index works semi-incrementally. Rather than keeping track of every line of text
+ever added to the class, index processes the new data into the array of tuples (again, just for the new input), appends
+it to the class's global array, and then resorts it. In this way, we avoid having to recompute the sentences that have
+already been processed, minus having to re-alphabetize. I chose to not re-compute the sentences each time there was a
+new call to addText as that seemed like a waste of cpu cycles. It's basically a trade off of having a call to index
+be fast, or having the call to addText be fast. One potential option I considered was to use multi-threading to
+continually process the input text for both indexing and listing pairs. While this would have greatly increased the
+complexity (especially where eventspec is concerned), it also would have resulted in a faster implementation.
+
+I used the eventspec class and the kwic.fsm state machine to verify that all of the above processes happen correctly,
+including handling the extra constructor fields for periodsToBreaks and ignoreWords when they are used. By printing out
+the steps taken through processing, it is very easy to see the program take the correct steps. In the case that a
+catastrophic state logic error has occurred, the EventSpec class will stop execution with a trace statement, making
+it very easy to diagnose what incorrect step was taken and correct it. I decided not to place event calls where there
+was the potential for large loops to keep the log of steps taken clear and concise. Had I placed further logic to handle
+these loops, there could potentially be hundreds, thousands, or more logged steps that would make debugging difficult.
+In a sense, using EventSpec performs a similar function to unit testing as if you ever change your code in a way that
+causes it to skip a step, or produce fatally incorrect output, the class will let you know roughly where the changed
+code is, so therefore a good idea about what went wrong.
+
+#####################################
+########## Trace Output #1 ##########
+#####################################
+# Code run
+kc = Kwic(periodsToBreaks=True)
+kc.addText("This pair? is good.\n So is this pair and that pair")
+kc.index()
+kc.reset()
+kc.addText("This pair? is good.\n So is this pair and that pair")
+kc.listPairs()
+kc.print_eventspec_log()
+
+# Trace Output
+STEP #0: callConstructor --> idle
+STEP #1: callAddText --> idle
+STEP #2: callIndex --> processIndex
+STEP #3: callProcessIndex --> checkIfText
+STEP #4: callSplitPeriods --> splitIntoTuples
+STEP #5: callSplitAsTuples --> fillCircular
+STEP #6: callFillCircular --> checkIgnoreOrAlpha
+STEP #7: callAlphabetize --> idle
+STEP #8: callReset --> idle
+STEP #9: callAddText --> idle
+STEP #10: callListPairs --> processListPairs
+STEP #11: callProcessListPairs --> listPairsIndexOrList
+STEP #12: callProcessIndex --> checkIfText
+STEP #13: callSplitPeriods --> splitIntoTuples
+STEP #14: callSplitAsTuples --> fillCircular
+STEP #15: callFillCircular --> checkIgnoreOrAlpha
+STEP #16: callAlphabetize --> idle
+STEP #17: callCreateListPairs --> idle
+
+#####################################
+########## Trace Output #2 ##########
+#####################################
+# Code run
+kc = Kwic(ignoreWords=["and", "So"])
+kc.addText("This pair? is good.\n So is this pair and that pair")
+kc.listPairs()
+kc.print_eventspec_log()
+
+# Trace Output
+STEP #0: callConstructor --> idle
+STEP #1: callAddText --> idle
+STEP #2: callListPairs --> processListPairs
+STEP #3: callProcessListPairs --> listPairsIndexOrList
+STEP #4: callProcessIndex --> checkIfText
+STEP #5: processNewlineSplit --> splitIntoTuples
+STEP #6: callSplitAsTuples --> fillCircular
+STEP #7: callFillCircular --> checkIgnoreOrAlpha
+STEP #8: callRemoveWords --> removingWords
+STEP #9: callAlphabetize --> idle
+STEP #10: callCreateListPairs --> idle

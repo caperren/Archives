@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>        
+        <meta charset="UTF-8">
+        <script src="http://openlayers.org/api/OpenLayers.js"></script> <!-- Needed for maps if I do it... -->
+        <title>CS 290 Ajax Interactions - Week 6</title>
+        <link href="style.css" rel=stylesheet type="text/css">
+    </head>
+    <body>
+        <div id="open_weather_main">
+            <p class="section_titles">Open Weather Maps Test</p>
+            
+            <div id="weather_data_container">
+                <p><span id="location_header">Location: </span><span id="location"></span></p>
+                <p><span class="weather_data_headers">Current Conditions: </span><span id="current_conditions"></span></p>
+                <p><span class="weather_data_headers">Temp:  </span><span id="current_temp"></span></p>
+                <p><span class="weather_data_headers">Pressure: </span><span id="current_pressure"></span></p>
+                <p><span class="weather_data_headers">Humidity: </span><span id="current_humidity"></span></p>
+                <p><span class="weather_data_headers">Recent Rainfall: </span><span id="current_recent_rainfall"></span></p>
+                <p><span class="weather_data_headers">Open Weather Request Details: </span><span id="request_details"></span></p>
+            </div>
+            
+            <div id="open_weather_form">
+                <fieldset>
+                    <p>Enter City or Zipcode: <input type="text" id="open_weather_input">
+                    <input id="weather_submit_button" type="submit">
+                </fieldset>
+            </div>
+            
+        </div>
+
+        <div id="post_bin_main">
+            <p class="section_titles">HTTPBIN Submission Test</p>
+            <div id="httpbin_response_container">
+                <p><span style="font-weight: bold;">Response in JSON: </span><span id="httpbin_reponse_json"></span></p>
+                <p><span style="font-weight: bold;">Response data: </span><span id="httpbin_reponse"></span></p>
+            </div>
+            
+            <div id="httpbin_form">
+                <fieldset>
+                    <p>Enter Data to Send to HTTPBIN: <input type="text" id="httpbin_input">
+                    <input id="httpbin_submit_button" type="submit">
+                </fieldset>
+            </div> 
+        </div>
+        
+        <script src="script.js"></script>
+    </body>
+</html>

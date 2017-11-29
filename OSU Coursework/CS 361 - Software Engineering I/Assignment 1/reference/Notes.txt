@@ -1,0 +1,6 @@
+1) ignoreWords only applies to indexing (the shifts) -- it has no impact on listPairs.
+2) In listPairs, a "pair" is two (different) words that appear together in a "line" -- they may not be next to each other, they are just in the same line.
+3) The list of pairs should have structure of list of tuple of tuple, I'll fix the bad example in the assignment.  Not lists.
+4) Submit files as a flat folder structure!!! kwic0.py testkwic0.py
+5) Use assert to test. It must throw an uncaught exception.
+6) The test testkwicN should pass kiwcN, but not if you ran it against a newer

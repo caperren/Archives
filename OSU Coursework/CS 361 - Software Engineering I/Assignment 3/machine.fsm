@@ -1,0 +1,13 @@
+begin: start
+
+state: start
+a -> infinibs
+b -> infinias
+
+state: infinibs
+b -> infinibs
+a -> start
+
+state: infinias
+a -> infiniais
+b -> start

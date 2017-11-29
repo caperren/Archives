@@ -1,0 +1,52 @@
+body {
+    background-color: #353535 ;
+    color: #e6e6e6;
+    margin: 0;
+    padding: 0;
+}
+
+#error_header {
+    color: #ff0001;
+}
+
+#page_header {
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+    text-align: center;
+    background-color: black;
+    color: #10ac25;
+}
+
+#page_header h1 {
+    margin: 0;
+    padding: 0;
+}
+
+.man_row_titles {
+    color: #10ac25;
+    padding-right: 20px;
+}
+
+.mem_man_text_input {
+    width: 75px;
+}
+
+#queries_left {
+    float: left;
+}
+
+#queries_right {
+    margin-left: 300px;
+}
+
+#main_output_div {
+    border-top: 2px solid #10ac25;
+    margin-top: 25px;
+}
+
+.results_table table, th, td{
+    border: 1px solid #e6e6e6;
+    padding: 2px;
+    border-collapse: collapse;
+}
