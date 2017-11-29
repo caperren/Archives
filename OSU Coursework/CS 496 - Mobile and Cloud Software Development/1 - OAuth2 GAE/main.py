@@ -7,8 +7,8 @@ import os
 from google.appengine.api import urlfetch
 import json
 
-CLIENT_ID = "196055969432-4h2b1f38v094hs83ea7vafjul25vtf1a.apps.googleusercontent.com"
-CLIENT_SECRET = "4rA3Oakv4jAJZCn1s6CN1kQn"
+CLIENT_ID = ""
+CLIENT_SECRET = ""
 
 GOOGLE_OAUTH_URI = "https://accounts.google.com/o/oauth2/v2/auth"
 GOOGLE_TOKEN_URI = "https://www.googleapis.com/oauth2/v4/token"

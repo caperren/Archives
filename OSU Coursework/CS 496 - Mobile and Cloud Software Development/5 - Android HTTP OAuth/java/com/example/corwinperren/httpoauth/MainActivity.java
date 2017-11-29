@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static final String TAG = MainActivity.class.getSimpleName();
 
-    private String mClientIDString = "106019908752-hkcvokpsq34vg0795mbhm42mbitqocub.apps.googleusercontent.com";
+    private String mClientIDString = "";
 
     public AuthorizationService mAuthorizationService;
 
