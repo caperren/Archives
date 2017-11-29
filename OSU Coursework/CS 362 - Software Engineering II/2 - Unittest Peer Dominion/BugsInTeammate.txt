@@ -1,0 +1,60 @@
+#############################
+########## Bug #01 ##########
+#############################
+Title: playSmithy Incorrect Card Pickup Count
+
+Affected Files: dominion.c
+
+Pertinent Code:
+dominion.c: Line 717 
+
+Test Environment: Red Hat Linux 4.8.5-4 (Kernel 3.10.0)
+
+Expected Result:
+A call to playSmithy should add three cards to the player's hand, then 
+discard the played card. The final result should be a hand with two extra cards
+in it.
+
+Actual Result:
+playSmithy picks up five cards instead of three, then discards a card like
+normal. The result is a hand with four extra cards instead of two.
+
+Steps to Reproduce:
+1. Use the other game functions to set up a normal game state.
+2. Set a current player.
+3. Save the handcount for the player in a temp variable.
+4. Call playSmithy against the selected player.
+5. Compare the saved handcount to the new handcount to see incorrect number.
+
+
+#############################
+########## Bug #02 ##########
+#############################
+Title: playAdventurer Incorrect Hand Count When Drawing Non-Treasure Cards
+
+Affected Files: dominion.c
+
+Pertinent Code:
+dominion.c: Line 701 
+
+Test Environment: Red Hat Linux 4.8.5-4 (Kernel 3.10.0)
+
+Expected Result:
+In a call to playAdventurer, during the process of "picking up" cards, 
+the temp hand stores a copy of any cards that aren't treasure cards, then
+removes the just saved "top card". This allows cards to be shuffled back into
+the game without being lost.
+
+Actual Result:
+In a call to playAdventurer, during the process of "picking up" cards,
+instead of removing the top card, an invalid top card is instead added. 
+Depending on the previous state of the hand, the error may not show itself, 
+for example, if every card picked up were a treasure card. In the case where
+this bug is hit, invalid cards could be shuffled back into the players hand at 
+a later time, causing major bugs in gameplay.
+
+Steps to Reproduce:
+1. Use the other game functions to set up a normal game state.
+2. Set a current player.
+4. Call playAdventurer against the selected player.
+5. Manually inspect the hand of the player and note invalid card indexes.

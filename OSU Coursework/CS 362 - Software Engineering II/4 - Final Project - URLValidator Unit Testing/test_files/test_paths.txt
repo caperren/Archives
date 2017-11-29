@@ -1,0 +1,10 @@
+/test1	valid
+/t123	valid
+/$23	valid
+/..	invalid
+/../	invalid
+/test1/	valid
+	true
+/test1/file	valid
+/..//file	invalid
+/test1//file	invalid
