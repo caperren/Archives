@@ -1,0 +1,1223 @@
+{
+	"variables": [],
+	"info": {
+		"name": "GAE - CS 496 REST Implementation and Planning Test Suite",
+		"_postman_id": "807a01c9-dafe-5038-4d5d-b118d4c92dee",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1. Boats Individual",
+			"description": "",
+			"item": [
+				{
+					"name": "Get Initial Number of Boats",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Good Response\"] = responseCode.code === 200;",
+									"",
+									"var num_boats = JSON.parse(responseBody).length;",
+									"",
+									"tests[\"Found \" + num_boats + \" boats\"] = 1;",
+									"",
+									"postman.setEnvironmentVariable(\"num_boats\", num_boats);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://cs496-rest-plan-and-implement.appspot.com/boats",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Add Boat",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Good response\"] = responseCode.code === 200;",
+									"",
+									"var json_body = JSON.parse(responseBody);",
+									"",
+									"tests[\"Saved Boat ID \" + json_body.id] = 1;",
+									"",
+									"postman.setEnvironmentVariable(\"new_boat_id\", json_body.id);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://cs496-rest-plan-and-implement.appspot.com/boats",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Stellar\",\n\t\"type\": \"Powerboat\",\n\t\"length\": 80\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "View New Boat / Verify Data Correct",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var data_to_check = {\"name\": \"Stellar\", \"length\": 80, \"type\": \"Powerboat\", \"at_sea\": true};",
+									"",
+									"var parsed_json = JSON.parse(responseBody);",
+									"",
+									"tests[\"Good Response\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Name Correct\"] = parsed_json[\"name\"] === data_to_check[\"name\"];",
+									"tests[\"Length Correct\"] = parsed_json[\"length\"] === data_to_check[\"length\"];",
+									"tests[\"Type Correct\"] = parsed_json[\"type\"] === data_to_check[\"type\"];",
+									"tests[\"At Sea Correct\"] = parsed_json[\"at_sea\"] === data_to_check[\"at_sea\"];"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://cs496-rest-plan-and-implement.appspot.com/boats/{{new_boat_id}}",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "View All Boats / Check Num Boats Increased",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var num_boats = JSON.parse(responseBody).length;",
+									"",
+									"var last_num_boats = parseInt(postman.getEnvironmentVariable(\"num_boats\"));",
+									"",
+									"tests[\"Good Response\"] = responseCode.code === 200;",
+									"tests[\"Found One Extra Boat\"] = (num_boats === (last_num_boats + 1));",
+									"",
+									"postman.setEnvironmentVariable(\"num_boats\", num_boats);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://cs496-rest-plan-and-implement.appspot.com/boats",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Replace Boat Details",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Good Response\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://cs496-rest-plan-and-implement.appspot.com/boats/{{new_boat_id}}",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Mary May\",\n\t\"type\": \"Sailboat\",\n\t\"length\": 45,\n\t\"at_sea\": true\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Check Boat Data Replaced",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var data_to_check = {\"name\": \"Mary May\", \"type\": \"Sailboat\", \"length\": 45, \"at_sea\": true};",
+									"",
+									"var parsed_json = JSON.parse(responseBody);",
+									"",
+									"tests[\"Good Response\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Name Correct\"] = parsed_json[\"name\"] === data_to_check[\"name\"];",
+									"tests[\"Length Correct\"] = parsed_json[\"length\"] === data_to_check[\"length\"];",
+									"tests[\"Type Correct\"] = parsed_json[\"type\"] === data_to_check[\"type\"];",
+									"tests[\"At Sea Correct\"] = parsed_json[\"at_sea\"] === data_to_check[\"at_sea\"];"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://cs496-rest-plan-and-implement.appspot.com/boats/{{new_boat_id}}",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Modify Boat Paramter",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Good Response\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://cs496-rest-plan-and-implement.appspot.com/boats/{{new_boat_id}}",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"The Black Pearl\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Check Boat Data Modified",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var data_to_check = {\"name\": \"The Black Pearl\"};",
+									"",
+									"var parsed_json = JSON.parse(responseBody);",
+									"",
+									"tests[\"Good Response\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Name Correct\"] = parsed_json[\"name\"] === data_to_check[\"name\"];"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://cs496-rest-plan-and-implement.appspot.com/boats/{{new_boat_id}}",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Boat",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Good Deletion\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://cs496-rest-plan-and-implement.appspot.com/boats/{{new_boat_id}}",
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Check Boat Deleted / Proper Response For Non-Existant Boat",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Good Deletion\"] = responseCode.code === 404;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://cs496-rest-plan-and-implement.appspot.com/boats/{{new_boat_id}}",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "2. Slips Individual",
+			"description": "",
+			"item": [
+				{
+					"name": "Get Initial Number of Slips",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Good Response\"] = responseCode.code === 200;",
+									"",
+									"var current_num_slips = JSON.parse(responseBody).length;",
+									"",
+									"tests[\"Found \" + current_num_slips + \" slips\"] = 1;",
+									"",
+									"postman.setEnvironmentVariable(\"num_slips\", current_num_slips);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://cs496-rest-plan-and-implement.appspot.com/slips",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create Slip",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Good response\"] = responseCode.code === 200;",
+									"",
+									"var json_body = JSON.parse(responseBody);",
+									"",
+									"tests[\"Saved slip with id \" + json_body.id] = 1;",
+									"",
+									"postman.setEnvironmentVariable(\"new_slip_id\", json_body.id);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://cs496-rest-plan-and-implement.appspot.com/slips",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"number\": 1\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "View New Slip / Verify Data Correct",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var data_to_check = {\"number\": 1, \"arrival_date\":null, \"current_boat\":null};",
+									"",
+									"var parsed_json = JSON.parse(responseBody);",
+									"",
+									"tests[\"Good Response\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Number Correct\"] = parsed_json[\"number\"] === data_to_check[\"number\"];",
+									"tests[\"Current Boat Correct\"] = parsed_json[\"current_boat\"] === data_to_check[\"current_boat\"];",
+									"tests[\"Arrival Date Correct\"] = parsed_json[\"arrival_date\"] === data_to_check[\"arrival_date\"];"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://cs496-rest-plan-and-implement.appspot.com/slips/{{new_slip_id}}",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "View All Slips / Check Num Slips Increased",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var current_num_slips = JSON.parse(responseBody).length;",
+									"",
+									"var last_num_slips = parseInt(postman.getEnvironmentVariable(\"num_slips\"));",
+									"",
+									"tests[\"Good Response\"] = responseCode.code === 200;",
+									"tests[\"Found One Extra Slip\"] = (current_num_slips === (last_num_slips + 1));",
+									"",
+									"postman.setEnvironmentVariable(\"num_slips\", current_num_slips);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://cs496-rest-plan-and-implement.appspot.com/slips",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Replace Slip Details",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Good Response\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://cs496-rest-plan-and-implement.appspot.com/slips/{{new_slip_id}}",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"number\": 100,\n\t\"current_boat\": \"{{new_boat_id}}\",\n\t\"arrival_date\": \"1/1/2017\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Check Slip Data Replaced",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var data_to_check = {\"current_boat\": null, \"number\": 100, \"arrival_date\": \"1/1/2017\"};",
+									"",
+									"data_to_check.current_boat = postman.getEnvironmentVariable(\"new_boat_id\");",
+									"",
+									"var parsed_json = JSON.parse(responseBody);",
+									"",
+									"tests[\"Good Response\"] = responseCode.code === 200;",
+									"tests[\"Current Boat Correct\"] = parsed_json[\"current_boat\"] === data_to_check[\"current_boat\"];",
+									"tests[\"Number Correct\"] = parsed_json[\"number\"] === data_to_check[\"number\"];",
+									"tests[\"Arrival Date Correct\"] = parsed_json[\"arrival_date\"] === data_to_check[\"arrival_date\"];"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://cs496-rest-plan-and-implement.appspot.com/slips/{{new_slip_id}}",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Modify Slip Parameter",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Good Response\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://cs496-rest-plan-and-implement.appspot.com/slips/{{new_slip_id}}",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"current_boat\": null\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Check Slip Data Modified",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var data_to_check = {\"current_boat\": null, \"number\": 100, \"arrival_date\": \"1/1/2017\"};",
+									"",
+									"var parsed_json = JSON.parse(responseBody);",
+									"",
+									"tests[\"Good Response\"] = responseCode.code === 200;",
+									"tests[\"Current Boat Correct\"] = parsed_json[\"current_boat\"] === data_to_check[\"current_boat\"];"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://cs496-rest-plan-and-implement.appspot.com/slips/{{new_slip_id}}",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Slip",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Good Response\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://cs496-rest-plan-and-implement.appspot.com/slips/{{new_slip_id}}",
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Check Slip Deleted / Proper Response for Non-Existant Slip",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Good Deletion\"] = responseCode.code === 404;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://cs496-rest-plan-and-implement.appspot.com/slips/{{new_slip_id}}",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "3. Boats and Slips Combined",
+			"description": "",
+			"item": [
+				{
+					"name": "Add Boat",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Good response\"] = responseCode.code === 200;",
+									"",
+									"var json_body = JSON.parse(responseBody);",
+									"",
+									"tests[\"Saved Boat ID \" + json_body.id] = 1;",
+									"",
+									"postman.setEnvironmentVariable(\"new_boat_id\", json_body.id);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://cs496-rest-plan-and-implement.appspot.com/boats",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Stellar\",\n\t\"type\": \"Powerboat\",\n\t\"length\": 80\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create Slip",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Good response\"] = responseCode.code === 200;",
+									"",
+									"var json_body = JSON.parse(responseBody);",
+									"",
+									"tests[\"Saved slip with id \" + json_body.id] = 1;",
+									"",
+									"postman.setEnvironmentVariable(\"new_slip_id\", json_body.id);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://cs496-rest-plan-and-implement.appspot.com/slips",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"number\": 1\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Put Boat In Slip",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Good response\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://cs496-rest-plan-and-implement.appspot.com/boats/{{new_boat_id}}/slip",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"slip_id\": \"{{new_slip_id}}\",\n\t\"arrival_date\": \"7/14/2017\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "View Boat in a Slip",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var data_to_check = {\"name\": \"Stellar\", \"type\": \"Powerboat\", \"length\": 80, \"id\": null};",
+									"",
+									"data_to_check.id = postman.getEnvironmentVariable(\"new_boat_id\");",
+									"",
+									"var parsed_json = JSON.parse(responseBody);",
+									"",
+									"tests[\"Good Response\"] = responseCode.code === 200;",
+									"tests[\"Name Correct\"] = parsed_json[\"name\"] === data_to_check[\"name\"];",
+									"tests[\"Type Correct\"] = parsed_json[\"type\"] === data_to_check[\"type\"];",
+									"tests[\"Length Correct\"] = parsed_json[\"length\"] === data_to_check[\"length\"];",
+									"tests[\"Id Correct\"] = parsed_json[\"id\"] === data_to_check[\"id\"];",
+									"",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://cs496-rest-plan-and-implement.appspot.com/slips/{{new_slip_id}}/boat",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Verify Boat Sucessfully Updated",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var data_to_check = {\"name\": \"Stellar\", \"type\": \"Powerboat\", \"length\": 80, \"id\": null};",
+									"",
+									"data_to_check.id = postman.getEnvironmentVariable(\"new_boat_id\");",
+									"",
+									"var parsed_json = JSON.parse(responseBody);",
+									"",
+									"tests[\"Good Response\"] = responseCode.code === 200;",
+									"tests[\"Name Correct\"] = parsed_json[\"name\"] === data_to_check[\"name\"];",
+									"tests[\"Type Correct\"] = parsed_json[\"type\"] === data_to_check[\"type\"];",
+									"tests[\"Length Correct\"] = parsed_json[\"length\"] === data_to_check[\"length\"];",
+									"tests[\"Id Correct\"] = parsed_json[\"id\"] === data_to_check[\"id\"];",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://cs496-rest-plan-and-implement.appspot.com/boats/{{new_boat_id}}",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Verify Slip Sucessfully Updated",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var data_to_check = {\"current_boat\": null, \"number\": 1, \"arrival_date\": \"7/14/2017\"};",
+									"",
+									"data_to_check.current_boat = postman.getEnvironmentVariable(\"new_boat_id\");",
+									"",
+									"var parsed_json = JSON.parse(responseBody);",
+									"",
+									"tests[\"Good Response\"] = responseCode.code === 200;",
+									"tests[\"Current Boat Correct\"] = parsed_json[\"current_boat\"] === data_to_check[\"current_boat\"];",
+									"tests[\"Number Correct\"] = parsed_json[\"number\"] === data_to_check[\"number\"];",
+									"tests[\"Arrival Date Correct\"] = parsed_json[\"arrival_date\"] === data_to_check[\"arrival_date\"];"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://cs496-rest-plan-and-implement.appspot.com/slips/{{new_slip_id}}",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Boat",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Good Deletion\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://cs496-rest-plan-and-implement.appspot.com/boats/{{new_boat_id}}",
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Slip",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Good Response\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://cs496-rest-plan-and-implement.appspot.com/slips/{{new_slip_id}}",
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tests for Bad Data / Operations",
+			"description": "",
+			"item": [
+				{
+					"name": "Add Boat A",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Good response\"] = responseCode.code === 200;",
+									"",
+									"var json_body = JSON.parse(responseBody);",
+									"",
+									"tests[\"Saved Boat ID \" + json_body.id] = 1;",
+									"",
+									"postman.setEnvironmentVariable(\"new_boat_id_a\", json_body.id);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://cs496-rest-plan-and-implement.appspot.com/boats",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Stellar\",\n\t\"type\": \"Powerboat\",\n\t\"length\": 80\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Add Boat B",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Good response\"] = responseCode.code === 200;",
+									"",
+									"var json_body = JSON.parse(responseBody);",
+									"",
+									"tests[\"Saved Boat ID \" + json_body.id] = 1;",
+									"",
+									"postman.setEnvironmentVariable(\"new_boat_id_b\", json_body.id);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://cs496-rest-plan-and-implement.appspot.com/boats",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Stellar\",\n\t\"type\": \"Powerboat\",\n\t\"length\": 80\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create Slip",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Good response\"] = responseCode.code === 200;",
+									"",
+									"var json_body = JSON.parse(responseBody);",
+									"",
+									"tests[\"Saved slip with id \" + json_body.id] = 1;",
+									"",
+									"postman.setEnvironmentVariable(\"new_slip_id\", json_body.id);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://cs496-rest-plan-and-implement.appspot.com/slips",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"number\": 1\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Fail on Bad Data to Make Boat",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Good response\"] = responseCode.code === 404;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://cs496-rest-plan-and-implement.appspot.com/boats",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Stellar\",\n\t\"type\": \"Powerboat\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Fail on Bad Data to Make Slip",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Good response\"] = responseCode.code === 404;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://cs496-rest-plan-and-implement.appspot.com/slips",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"something\": \"else\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Fail on Modifing More Than One Parameter on Boat",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Good response\"] = responseCode.code === 404;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://cs496-rest-plan-and-implement.appspot.com/boats/{{new_boat_id_a}}",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"The Black Pearl\",\n\t\"length\": 40\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Fail on Modifing More Than One Parameter on Slip",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Good response\"] = responseCode.code === 404;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://cs496-rest-plan-and-implement.appspot.com/slips/{{new_slip_id}}",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"current_boat\": null,\n\t\"arrival_date\": null\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Put Boat In Slip",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Good response\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://cs496-rest-plan-and-implement.appspot.com/boats/{{new_boat_id_a}}/slip",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"slip_id\": \"{{new_slip_id}}\",\n\t\"arrival_date\": \"7/14/2017\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Fail on Assigning Boat to Already Assigned Slip",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Good response\"] = responseCode.code === 403;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://cs496-rest-plan-and-implement.appspot.com/boats/{{new_boat_id_b}}/slip",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"slip_id\": \"{{new_slip_id}}\",\n\t\"arrival_date\": \"7/14/2017\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Boat A",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Good Deletion\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://cs496-rest-plan-and-implement.appspot.com/boats/{{new_boat_id_a}}",
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Boat B",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Good Deletion\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://cs496-rest-plan-and-implement.appspot.com/boats/{{new_boat_id_b}}",
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Slip",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Good Response\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://cs496-rest-plan-and-implement.appspot.com/slips/{{new_slip_id}}",
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
