@@ -1,0 +1,17 @@
+	AREA Pointers, CODE, READONLY
+	ENTRY 
+Start 
+	ADR  r0, Array ;Point to address of array
+	MOV  r1, #5 ;Set up a loop counter for array
+	MOV  r2, #1 ;Set first val to one so math works
+MultLoop 
+	LDR  r3,[r0] ;Put current array value into r3
+	MUL r2,r3,r2 ;Multiply array val by stored product
+	ADD  r0,r0,#4 ;Move forward by one array element
+	SUBS  r1,r1,#1 ;Decrease loop counter
+	BNE MultLoop ;repeat until all elements added
+	
+	;Final value in r2 (0x78 == 120 == 5!)
+
+Array   DCD  1,2,3,4,5  ;Array to hold values
+	END

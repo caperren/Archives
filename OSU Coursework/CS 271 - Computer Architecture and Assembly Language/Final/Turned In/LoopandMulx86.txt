@@ -1,0 +1,32 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+TITLE LoopArrayMultiply						(main.asm)
+;Author: Corwin Perren
+;Date: 3/13/2014
+;Description:
+;	This program runs through an array and multiplies each value until all
+;	array elements have been iterated through
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+INCLUDE Irvine32.inc
+
+.data
+	Array DWORD 1,2,3,4,5	;Array with five values
+
+.code
+
+main PROC
+	cld						;Set direction forward
+	mov esi, OFFSET Array	;Point esi to offset for array
+	mov ecx, LENGTHOF Array	;Set loop counter to length of array
+	mov ebx, 1				;Set storage reg to 1 so initial multiplication works
+MultLoop:
+	lodsd					;Load current array value into eax
+	mul ebx					;Multiply eax by ebx
+	mov ebx, eax			;Store result in ebx
+	loop MultLoop			;Loop until array empty
+	mov eax, ebx			;Move final value into eax for printing
+	call WriteDec			;Print to screen
+	call Crlf				;Print line
+	exit					;Exit program
+main ENDP
+END main

@@ -1,0 +1,48 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+TITLE Constrain						(main.asm)
+;Author: Corwin Perren
+;Date: 3/13/2014
+;Description:
+;	This program runs passes an argument via stack to a constain function
+;	based off of hobby R/C pulse times (1000-2000 microseconds)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+INCLUDE Irvine32.inc
+
+.data
+	ParamToConstrain DWORD 2500 ;;;;Value to constrain
+	UpperVal DWORD 2000 ;;;;Upper limit for constraint
+	LowerVal DWORD 1000	;;;;Lower limit for constraint
+.code
+
+Constrain PROC
+	mov ebp, esp ;;;;Move stack pointer into ebp
+	mov eax, [ebp+4] ;;;;Move the param to constrain into eax
+	cmp eax, [ebp+8] ;;;;Compare param to constrain to upper val
+	jg IsGreater ;;;;If it's greater, jump to isgreater
+	cmp eax, [ebp+12] ;;;;If it's not greater check if it's lower than lower val
+	jg NoChange ;;;;If it's not lower, jump to end of procedure
+	mov eax, [ebp+12] ;;;;If lower, move lower constrain value into eax
+	mov [ebp+4], eax ;;;;Replace value to constrain with eax
+	jmp NoChange ;;;;Just to end of procedure
+IsGreater:
+	mov eax, [ebp+8] ;;;;If greater, move upper val into eax
+	mov [ebp+4], eax ;;;;Replace value to constrain with eax
+NoChange:
+	ret ;;;;Return from procedure
+Constrain ENDP
+
+main PROC
+
+MultLoop:
+	push LowerVal ;;;;Push lower constraint to the stack
+	push UpperVal ;;;;Push upper constraint to the stack
+	push ParamToConstrain ;;;;Push value onto the stack
+	call Constrain ;;;;Constrain this value
+	pop eax ;;;;Pop constrained value off the stack
+	add esp, 8 ;;;;Clean up stack
+	call WriteDec ;;;;Write value to screen
+	call Crlf ;;;;Prints a new line
+	exit ;;;;Exits the program
+main ENDP
+END main

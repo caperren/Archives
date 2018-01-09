@@ -1,0 +1,1 @@
+.\assem.o: assem.s
