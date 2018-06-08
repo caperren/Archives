@@ -1,0 +1,22 @@
+\section{Design}
+The framework for the device driver was taken from the "simple block device" from the website: http://blog.superpat.com/2010/05/04/a-simple-block-driver-for-linux-kernel-2-6-31/. The following changes were then needed to add crypto functionality:
+\begin{itemize}
+\item Addition of cipher
+\item Addition of cipher key
+\item Addition of module parameter for the key
+\item Change the read and write functionality so that the encryption and decryption occurs as the reads and writes happen
+\end{itemize}
+
+The following psuedocode describes how the read and write functionality with encryption and decryption was implemented:
+\begin{lstlisting}[lineskip=3pt,keywords={if,else,while}]
+if (write) {
+	for(iterate through desired length) {
+		encrypt using crypto_cipher_encrypt_one()
+	}	
+}
+else {
+	for(iterate through desired length) {
+		decrypt using crypto_cipher_decrypt_one()
+	}	
+}		
+\end{lstlisting}

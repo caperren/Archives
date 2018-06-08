@@ -1,0 +1,44 @@
+\section{Questions}
+\subsection{Point of Assignment}
+One of the main points of this assignment was to gain experience working with the memory management system in Linux. Working with slob.c requires knowledge of how memory is organized and how to access this memory. Doing this also provides more experience modifying existing kernel code. Finally this assignment also provided an opportunity to create and use a custom system call.
+
+\subsection{Problem Approach}
+We approached this problem by first reading the HW4 page on Canvas and reading through the slob.c file in the "mm" folder. After reaching an understanding of how the "slob.c" file works, we set up our kernel to use SLOB instead of SLAB. 
+
+Next we started to create a design for how we would implement the best-fit algorithm. This involved determining which functions were being used to implement first-fit. These functions were found to be "slob\_alloc" and "slob\_page\_alloc". To implement best-fit we modified these and added a helper function "find\_closest\_block\_size\_in\_page". After this was tested and correctly functioning, we added two system call functions that find the amount of free memory and the amount of used memory by finding the number of pages being used and the amount of space on each page that is free. These system calls were also added to a unmodified version of the kernel's slob.c to test the fragmentation of the first-fit algorithm in comparison to the best-fit algorithm. These system calls were added to the system call table, and a program was written to call these system calls in order to test both algorithms. Each algorithm was then tested five times. The results of these tests are in the "Correctness" section below.
+
+\subsection{Correctness}
+The test results are shown in Table 1 below. The test was run five different times on each of the two kernels with the different algorithms. To calculate the fragmentation, the following equation was used:
+\[ \frac{free  blocks}{total blocks}*100 = fragmentation \]
+The average fragmentation over these five tests was then calculated. The average fragmentation was found to be 5.80\% for first-fit and 4.20\% for best-fit. 
+
+\begin{table}[ht]
+\caption{Fragmentation of First-Fit vs. Best-Fit Algorithms} % title of Table
+\centering % used for centering table
+\begin{tabular}{ c | c c c | c c c } % centered columns (7 columns)
+\hline\hline %inserts double horizontal lines
+& \multicolumn{3}{| c |}{First-Fit} & \multicolumn{3}{ c }{Best-Fit}\\
+\hline
+Trial & Free Blocks & Total Blocks & Fragmentation & Free Blocks & Total Blocks & Fragmentation \\ [0.5ex] % inserts table
+%heading
+\hline % inserts single horizontal line
+1 & 303776 & 5220352 & 5.82\% & 217544 & 5132288 & 4.24\% \\ % inserting body of the table
+2 & 303032 & 5220352 & 5.80\% & 214686 & 5130240 & 4.18\% \\
+3 & 304898 & 5220400 & 5.84\% & 215515 & 5130240 & 4.20\% \\
+4 & 303096 & 5220352 & 5.81\% & 213248 & 5128192 & 4.16\% \\
+5 & 298986 & 5216256 & 5.73\% & 215862 & 5130240 & 4.21\% \\ 
+\hline
+Average & & & 5.80\% & & & 4.20\% \\
+\hline %inserts single line
+\end{tabular}
+\label{table:nonlin} % is used to refer this table in the text
+\end{table}
+
+As can be seen from the table, the fragmentation values fo r the best-fit algorithm are lower than those for the default first-fit one that ships with the kernel. This proves out implementation is correct as the best-fit model, while slower, does use the allocated pages in memory more efficiently than first-fit. 
+
+
+\subsection{What Was Learned}
+We learned in this lab that the memory management system in linux is large and complex. We also learned that best-fit has less fragmentation than first-fit. However, there is a trade-off as best-fit also causes the kernel to boot significantly slower than with first-fit. Finally we learned how to create a custom system call, how to add it to the system call table, and how to use it.
+
+\subsection{How to Evaluate}
+To evaluate this, get a clean version of the linux yocto kernel and copy the patch file into the root of the directory. Run "patch -p1 -t $<$ homework4.patch" to apply the changes to the necessary files. Make the kernel using "make -j4". Boot the kernel and scp the "find\_fragmentation.c" file into the running vm. Run "gcc find\_fragmentation.c -o frag\_check" on the vm's command line to build the fragmentation source into a binary. Run the binary with "./frag\_check". If the program outputs reasonable values for free, used, and fragmentation the kernel was built and is running correctly using the modified slob algorithm. The values on a cleanly booted system should closely match the best-fit table values from above. 

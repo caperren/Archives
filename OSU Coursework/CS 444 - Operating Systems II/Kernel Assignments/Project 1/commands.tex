@@ -1,0 +1,15 @@
+\section{Commands}
+\begin{itemize}
+\item mkdir /scratch/spring2018/4
+\item cd /scratch/spring20128/4 
+\item git init
+\item wget http://git.yoctoproject.org/cgit.cgi/linux-yocto/snapshot/linux-yocto-3.19.2.tar.bz2
+\item tar xvjf linux-yocto-3.19.2.tar.bz2
+\item cp /scratch/files/bzImage-qemux86.bin .
+\item cp /scratch/files/core-image-lsb-sdk-qemux86.ext4 .
+\item cp /scratch/files/config-3.19.2-yocto-standard .config
+\item source /scratch/files/environment-setup-i586-poky-linux.csh
+\item make -j4
+\item qemu-system-i386 -gdb tcp::5004 -nographic -kernel bzImage-qemux86.bin -drive file=core-image-lsb-sdk-qemux86.ext4,if=virtio -enable-kvm -net none -usb -localtime --no-reboot --append "root=/dev/vda rw console=ttyS0 debug".
+
+\end{itemize}

@@ -1,0 +1,81 @@
+\section{Individual OS Info}
+\subsection{Windows}
+\subsubsection{Processes}
+Processes in Windows are items with a unique process ID and at least one thread. They contain information about open handles to file system objects, virtual addresses for memory, and access token to ensure that the process is being run using the correct user. In Windows, child processes know very little about their parent process, literally just their parent's PID. If the parent dies, the child processes will continue running until they are terminated another way. 
+\subsubsection{Threads}
+In Windows, there are multiple kinds of threads available. These are single, apartment, free, and a combination of both apartment and free. Single threaded threads run on the main process and cause code to block as other parts run. Apartment threading gives each thread its own "apartment" inside of the the larger process "building". This allows each thread to run independently and to share resources. Free threads are run as a multi-threaded apartment object and will incur a large communications penalty if threads needed to intercommunicate as the threads do not have direction access to each other. The final options which is a combination of both of the last two allows for direct access while multi-threading but without the performance issues of either.
+\subsubsection{Scheduling}
+The Windows scheduled uses a multilevel queue to handle its processes. Processes are assigned a priority value from 0-31 with higher numbers being higher priority. When the scheduler tries to determine which thread to give time on the CPU, it first starts by checking the threads with the highest priority and giving any that are ready their time up to a maximum that's set at a system level. Once that priority level has no more processes that are ready, it goes to the next lower priority value. However, if a higher priority process becomes ready while that lower priority process is running, the lower priority process will be slept so the more important one can run. 
+
+\subsection{FreeBSD}
+\subsubsection{Processes}
+Processes in FreeBSD have a process ID, group, owner, and permissions that determine what the process can interact with. The process also knows what its parent ID is. If the process does not take any direct user input on a command line or GUI, the process is known as a daemon. When child processes are made, these child processes will die if the parent process dies. 
+\subsubsection{Threads}
+FreeBSD actually implements two different implementations of threading. The first is M:N threading (hybrid threading) where the threads get placed onto their own kernel entities. This complicates the underlying kernel code for handling threads but allows for fast context switching as the threading library itself schedules the threads on the CPU. However, this also means that if the library isn't well or efficiently coordinated, thread efficiency can suffer. Because it is a complex threading method, it also makes code harder to maintain.
+The other threading library uses the 1:1 threading model where each thread has its own kernel threads. This model has the benefit of being able to split across multiple CPU cores, but can be slow to setup the threads themselves. The kernel also has a low limit on the number of threads that can be created in total, creating a bottleneck for systems such as servers that need to spawn many many processes with many threads. 
+\subsubsection{Scheduling}
+
+The FreeBSD scheduler is called the ULE scheduler after the word schedULEr itself. This is a more recent scheduler in the total lifespan of FreeBSD but is now default on all the mainline distros. The scheduler is a queue based and cuts up the CPU into time slices that it shares among the queue using load balancing algorithms. Overall, it tries to be fair about how it schedules time on the CPU, but unlike older scheduling systems for the OS, it does have some prioritization built in so that important processes such as those that the user is currently interacting with can be given a little extra CPU time.
+
+\subsection{Linux}
+\subsubsection{Processes}
+So far as I can tell, the core information that processes store is the same on linux as it is on FreeBSD. This includes the process ID, group, owner, and runtime permissions. Same as FreeBSD, child processes of a parent will die if the parent dies.
+\subsubsection{Threads}
+Threads on linux are implemented using pthread. Essentially, pthread creates a clone of the process is it called from, allowing it to share the same memory space, but running a different section of code. This implementation is a 1:1 model where a new process is created for each thread, but can be changed depending on the exact version of linux being used to be part of the same parent thread instead. 
+\subsubsection{Scheduling}
+The scheduler on linux is called the completely fair scheduler, or CFS for short. Unlike other operating systems, the CFS does not use traditional queues but instead uses a red/black tree where the indexes are the amount of time the process has spent on the CPU. Because of this implementation, the code for this scheduler is much more complex than other systems such as a queue. However, what this tree does allow for is very easy picking of which process needs to run next. Items on the left side of the tree are the ones that haven't had as much processor time, where the ones on the right have had enough time that they should continue waiting.
+
+
+\section{Inter-OS Comparisons}
+\subsection{Windows vs. Linux}
+Windows and Linux are surprisingly different in terms of how each system handles their processes, threads, and scheduling. At their root, there are definitely similar features such as process IDs, child processes, and runtime permissions but ultimately they're implemented in very different ways. The biggest two differences are in how threading is handled and the way their schedulers work. Windows has more in common with FreeBSD in this context, where the threads can be adapted to whichever mode is most useful and efficient to the user at any given time, and is a stark contrast to linux's 1:1 mode. The schedulers couldn't really be more different. Linux focuses on maintaining fair CPU usage time on the processor where Windows is all about making sure processes that are deemed more important get more time, quite explicitly. Ultimately, I can understand why both OSes would choose to take the routes they did. For Windows, they wanted to make sure lower level important system processes could never be overrun by less important user processes. And in Linux, this essentially was handled by making sure that both user and system processes couldn't take up too much time because they'd always have to share. It's really two different valid solutions to the same problem.
+
+\subsection{FreeBSD vs. Linux}
+Ultimately, FreeBSD and Linux are both derived from a common background of Unix and it shows in that they're both quite similar. Process-wise, the two operating systems are nearly identical, and while they're not identical when it comes to threading, they both have overlap in that they either run or can run in 1:1 threading models where a unique kernel thread is made for each. The biggest difference between the two operating systems seems to be that the schedulers are extremely different. While FreeBSD uses a queue based system, linux's red/black fair scheduler is a much more complex scheduler. Ultimately, to me it looks like FreeBSD is more focused around maintaining backwards compatibility while providing the most flexibility and options to the user. Linux on the other hand very much seems to be more pointed towards working out over time what the BEST solution to each problem is, whether it be threading or scheduling, and making it the primary way the OS functions in the expectation that by designing the OS right the first time, the user won't have to worry about it as much. 
+
+\subsection{FreeBSD/Linux Code Comparison}
+\subsubsection{FreeBSD}
+\begin{lstlisting}[language=c++]
+static struct thread *
+tdq_choose(struct tdq *tdq)
+{
+	struct thread *td;
+
+	TDQ_LOCK_ASSERT(tdq, MA_OWNED);
+	td = runq_choose(&tdq->tdq_realtime);
+	if (td != NULL)
+		return (td);
+	td = runq_choose_from(&tdq->tdq_timeshare, tdq->tdq_ridx);
+	if (td != NULL) {
+		KASSERT(td->td_priority >= PRI_MIN_BATCH,
+		    ("tdq_choose: Invalid priority on timeshare queue %d",
+		    td->td_priority));
+		return (td);
+	}
+	td = runq_choose(&tdq->tdq_idle);
+	if (td != NULL) {
+		KASSERT(td->td_priority >= PRI_MIN_IDLE,
+		    ("tdq_choose: Invalid priority on idle queue %d",
+		    td->td_priority));
+		return (td);
+	}
+
+	return (NULL);
+}
+\end{lstlisting}
+
+\subsubsection{Linux}
+\begin{lstlisting}[language=c++]
+struct sched_entity *__pick_first_entity(struct cfs_rq *cfs_rq)
+{
+	struct rb_node *left = rb_first_cached(&cfs_rq->tasks_timeline);
+
+	if (!left)
+		return NULL;
+
+	return rb_entry(left, struct sched_entity, run_node);
+}
+\end{lstlisting}
+
+\subsection{Comparison}
+Looking at this code, we can see both operating systems approach to choosing a thread to schedule is very different. FreeBSD is choosing an item based on more qualifiers than Linux, such as whether the thread was made with priority settings. For Linux, the implementation of the tree means that finding the leftmost element is all that's needed to get the next item. In this instance, the overall more complex Linux scheduler actually has an easier time determining what to run next than FreeBSD, but FreeBSD allows for more flexibility when a user is writing a program about how exactly they want a thread to run.

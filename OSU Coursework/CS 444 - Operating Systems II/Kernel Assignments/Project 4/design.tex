@@ -1,0 +1,38 @@
+\section{Design}
+In order to implement a best-fit version of the slob, we're going to need to modify the functions slob\_alloc and slob\_page\_alloc in "slob.c".  From a high level, the biggest change that needs to be made is for slob\_alloc to have an understanding of which of its pages have a block that is best sized for the allocation that is requested. This will involve not only finding a page with free blocks available, but going through all pages with free blocks available, and then choosing the page and block that is larger than, but closest to the size of the requested allocation. If along the way, we encounter a page with a block that is exactly the size we need, we can immediately choose that as the allocation point as you can't get better than perfectly sized. In the event that there are no pages with blocks available to store the requested size of allocation, the default creation of a new page will occur, providing an empty chunk of memory that will have enough space.
+
+Changes to slob\_alloc:
+\begin{lstlisting}[lineskip=3pt,keywords={if,else,while,for}]
+for each page
+	//section "Enough room on this page?"
+	check size of all blocks on current page
+    
+	if (no space large enough on this page) {
+		continue
+	}
+	if (any block has a perfect fit) {
+		store page
+		break
+	}
+	else if (any block has a fit better than current best fit) {
+		store page
+	}
+
+if (found page with block with space) {
+	allocate the space
+} else {
+	create a new page
+}
+
+\end{lstlisting}
+
+Changes to slob\_page\_alloc:
+\begin{itemize}
+	\item Separate the original function so that it finds the best block (using same logic as find\_closest\_block\_size\_in\_page) and then allocates that block
+    \item Take out "room enough" section because we already know there is room
+\end{itemize}
+    
+find\_closest\_block\_size\_in\_page:
+\begin{itemize}
+	\item Uses same logic as original slob\_page\_alloc to go through each block, but searches for the best instead of the first
+\end{itemize}

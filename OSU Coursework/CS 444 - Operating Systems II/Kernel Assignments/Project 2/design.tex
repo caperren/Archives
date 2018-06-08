@@ -1,0 +1,27 @@
+\section{Design}
+\begin{itemize}
+\item Elevator: LOOK
+\item Method of sorting items: Insertion Sort
+\end{itemize}
+
+The framework for the LOOK elevator was taken from the no-op elevator. To adapt this framework into the LOOK elevator, the "sstf\_add\_request" function was changed so that each item is sorted as it is inserted into the queue rather than simply adding each new request to the end of the queue. The following is pseudocode that describes the "sstf\_add\_request" function. 
+
+\begin{lstlisting}[lineskip=3pt,keywords={if,else,while}]
+if (list is empty) {
+	add request to queue
+}
+else {
+	if (request > next) {
+		while (request > next) {
+			move up the queue
+		}
+		add request to queue before this point
+	}
+	else {
+		while (request > prev) {
+			move down the queue
+		}
+		add request to queue after this point
+	}
+}		
+\end{lstlisting}

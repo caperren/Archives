@@ -1,0 +1,53 @@
+\section{QEMU Flags}
+
+\begin{itemize}
+  \item \texttt{-gdb tcp::????}
+
+    Waits for a GDB connection on the specified device, namely a TCP
+    connection on port ????.
+
+  \item \texttt{-S}
+
+    Prevents the CPU from starting up when first launching the command.
+
+  \item \texttt{-nographic}
+
+    Disables graphical capabilities and turns qemu into a command line
+    application.
+
+  \item \texttt{-kernel bzImage-qemux86.bin}
+
+    Uses the ``\texttt{bzImage-qemux86.bin}'' binary as the kernel image to boot.
+
+  \item \texttt{-drive file=core-image-lsb-sdk-qemux86.ext4,if=virtio}
+
+    Uses ``\texttt{core-image-lsb-sdk-qemux86.ext4}'' as the file for the virtual
+    hard drive, and virtio as the I/O interface (virtio virtualizes I/O
+    operations like disk reads/writes).
+
+  \item \texttt{-enable-kvm}
+
+    Enables use of kernel-based virtual machine technology.
+
+  \item \texttt{-net none}
+
+    Indicates that no network devices should be configured.
+
+  \item \texttt{-usb}
+
+    Enables USB drivers.
+
+  \item \texttt{-localtime}
+
+    Uses the local time from the host machine to set the time in the guest,
+    instead of the default of UTC time.
+
+  \item \texttt{--no-reboot}
+
+    Shuts down the guest entirely on exit instead of rebooting.
+
+  \item \texttt{--append "root=/dev/vda rw console=ttyS0 debug"}
+
+    Uses \texttt{"root=/dev/vda rw console=ttyS0 debug"} as the initial command line,
+    running it on initial boot.
+\end{itemize}
