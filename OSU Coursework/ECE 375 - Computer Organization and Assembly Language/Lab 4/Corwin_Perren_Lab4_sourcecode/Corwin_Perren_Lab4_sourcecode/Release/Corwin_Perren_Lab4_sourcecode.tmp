@@ -1,0 +1,31 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.7</VERSION>
+ <DEVICE>"ATmega128"</DEVICE>
+ <WORKING_DIR>c:\users\caperren\Documents\Atmel Studio\7.0\Corwin_Perren_Lab4_sourcecode\Corwin_Perren_Lab4_sourcecode\Release</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>c:\users\caperren\Documents\Atmel Studio\7.0\Corwin_Perren_Lab4_sourcecode\Corwin_Perren_Lab4_sourcecode\Corwin_Perren_Lab4_sourcecode.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m128def.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>c:\users\caperren\Documents\Atmel Studio\7.0\Corwin_Perren_Lab4_sourcecode\Corwin_Perren_Lab4_sourcecode\Release\Corwin_Perren_Lab4_sourcecode.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>Corwin_Perren_Lab4_sourcecode.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>Corwin_Perren_Lab4_sourcecode.map</FILE>
+  <FILE>Corwin_Perren_Lab4_sourcecode.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <INIT><FILE>c:\users\caperren\Documents\Atmel Studio\7.0\Corwin_Perren_Lab4_sourcecode\Corwin_Perren_Lab4_sourcecode\Corwin_Perren_Lab4_sourcecode.asm</FILE><LINE>40</LINE></INIT>
+  <MAIN><FILE>c:\users\caperren\Documents\Atmel Studio\7.0\Corwin_Perren_Lab4_sourcecode\Corwin_Perren_Lab4_sourcecode\Corwin_Perren_Lab4_sourcecode.asm</FILE><LINE>60</LINE></MAIN>
+  <FUNC><FILE>c:\users\caperren\Documents\Atmel Studio\7.0\Corwin_Perren_Lab4_sourcecode\Corwin_Perren_Lab4_sourcecode\Corwin_Perren_Lab4_sourcecode.asm</FILE><LINE>77</LINE></FUNC>
+  <STRING_BEG><FILE>c:\users\caperren\Documents\Atmel Studio\7.0\Corwin_Perren_Lab4_sourcecode\Corwin_Perren_Lab4_sourcecode\Corwin_Perren_Lab4_sourcecode.asm</FILE><LINE>95</LINE></STRING_BEG>
+  <STRING_END><FILE>c:\users\caperren\Documents\Atmel Studio\7.0\Corwin_Perren_Lab4_sourcecode\Corwin_Perren_Lab4_sourcecode\Corwin_Perren_Lab4_sourcecode.asm</FILE><LINE>97</LINE></STRING_END>
+ </LABELS>
+</ASSEMBLER_INFO>
