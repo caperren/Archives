@@ -1,0 +1,23 @@
+/** Pseudocode for question 6, homework 1, in ece151
+*   Made by Corwin Perren
+*/
+
+create integer x
+create integer t
+create integer sum
+create integer a and set to 0
+create integer b and set to 1
+
+print "Enter the step of the Fibonacci sequence you want to calculate:"
+print a new line
+set integer t from user input
+
+while 
+	t is greater than x
+		print a
+		sum a and b
+		set a = b
+		set b = sum
+		increment x by 1
+
+when false print new line

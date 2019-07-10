@@ -1,0 +1,21 @@
+/** Pseudocode for question 7, homework 1, in ece151
+*   Made by Corwin Perren
+*/
+
+create integer x
+
+print "Enter a number between 0 and 255"
+print a new line
+receive an integer "x" from user
+
+if 
+	1: x is less than 0 and greater than 255
+	and 
+	2: x is not -1
+		print "The value you entered was improper or out or range"
+		print a new line
+else if 
+	1: x is greater than or equal to 0
+	and
+	2: x is less than or equal to 255
+		print corresponding ASCII character from value of x

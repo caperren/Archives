@@ -1,0 +1,193 @@
+1 - What does a comment in C look like? Give some examples.
+
+/** This is what the majority of block comments in C look like. Once it is
+ * recognized as a comment, the block color will change for easier
+ * readability.
+ */	
+
+// This is an example of a single line comment. It's useful for commenting on
+// the same line as actual code.
+
+
+2 - How does one open a file in vi? Save a file? Quit?
+
+	a. To open a file, you type "vi filename" at the linux command line.
+	   To save a file, enter vi command mode and type ":w"
+	   To quit, enter vi command mode and type ":q" or press shift-z-z  
+
+
+3 - (3.1) Write the octal, decimal, and  hexadecimal equivalents of these numbers.
+      Answers in form "Original: octal, decimal, hexadecimal"
+	
+	a. 00110011 = 63, 51, 33
+	b. 01101100 = 154, 108, 3C
+	c. 01110111 = 167, 119, 77
+	d. 00111101 = 75, 61, 3D
+	e. 11111011 = -5, -5, -5
+	f. 11111111 = -1, -1, -1
+	g. 00100010001011010 = 42132, 17498, 445A
+	h. 10100010001011010 = -135646, -48038, -BBA6
+
+
+4 - (3.5) Find the errors in each of the following segments.
+	a. printf("%s\n", 'Happy Birthday'); 
+		Fixed: printf("%s\n", "Happy Birthday");
+
+	b. printf("\%c\n", 'Hello');
+		Fixed: printf("%s\n", "Hello");
+
+	c. printf("%c\n", "This is a string);
+		Fixed: printf("%s\n", "This is a string");
+
+	d. printf(""%s"", 'Good Bye');
+		Fixed: printf("%s", "\"Good Bye\"\n");
+
+	e. char c = 'a';
+	   printf("%s\n", c);
+		Fixed: char c = 'a';
+		       printf("%c\n", c);
+
+	f. printf('Enter your name: ");
+		Fixed: printf("Enter your name: ");
+
+	g. printf( %f, 123.456);
+		Fixed: printf("%f", 123.456);
+
+	h. printf("%s%s\n", 'O', 'K');
+		Fixed: printf "%s%s\n, "O", "K");
+
+	i. char c;
+	   scanf("%c", c);
+		Fixed: char c;
+		       scanf("%c", &c);
+
+	j. double d;
+	   scanf("%f", &d);
+	   printf("%f", d);
+		Fixed: double d;
+		       scanf("%lf", &d);
+		       printf("%lf", d);
+
+	k. int d;
+	   scanf("%f", &d);
+	   printf("%f", d);
+		Fixed: int d;
+		       scanf("%d", &d);
+		       printf("%d", d);
+
+	l. double x = 123.45678, y;
+	   int d;
+	   d = x;
+	   y = d;
+	   printf("%f\n", y);
+		Fixed: double x = 123.45678
+		       double d;
+		       d = x;
+		       y = d;
+		       printf("%f\n", y);
+
+
+5 - (3.6) How many digits are after the decimal point for floating point values
+printed with printf? Does printf round or truncate values?
+
+	a. There are six values after the decimal point by default. Yes,
+	   printf will always truncate to this number unless otherwise specified, and
+	   while doing so, it rounds the answer.
+
+
+6 - (3.17) Signed and unisgned representation problems
+	a. Signed - 256
+	   Unsigned - 128
+	b. Signed - 65536
+	   Unsigned - 32768
+	c. Signed - 4294967296
+	   Unsigned - 2147483648
+	d. Signed - 64
+	   Unsigned - 32
+	e. Signed - 1024
+	   Unsigned - 512
+
+
+7 - (4.1) State whether the following are true or false?
+
+	a. False. Operators in C are evaluated from right to left. The
+	   compiler reads down the code, the evaluates coming back up in the opposite
+	   direction. 
+
+	b. False. The || operator is an inclusive or, meaning that if either
+	   or both of the operator statements are true, the expression will evaluate as
+	   true.
+
+
+8 - (4.12) - Write C Expressions
+
+	a. (x + 4) / (y + 5)
+	b. 9 + (5*((x + 4) / (y + 5)))
+	c. (4 / 3) * 3.14 * r pow(r, 3)
+	d. x < y
+	e. (x >= y) & (y <= z)
+	f. (x >= y) & (x >= 0)
+	g. (x <= 1) | (x > 20)
+	h. (x > 1)  & (x <= 20)
+	i. ( (x > 1) & (x <= 20) ) | ( (y <= 3) & (y >= 1) )
+
+
+9 - (5.3) Correct errors in each of the code blocks
+
+	a. if(age >= 65);
+	   	printf("Age is greater than or equal to 65\n");
+	   else
+	   	printf("Age is less than 65\n")
+		
+	a fixed: if(age >= 65){
+           	        printf("Age is greater than or equal to 65\n");
+           	 }else{
+                	printf("Age is less than 65\n");
+		 }
+
+
+	b. if(i = 2)
+	   	printf("i is 2\n");
+	   else
+	   	printf("i is not equal to 2\n");
+
+	b fixed: if(i == 2){
+                 	printf("i is 2\n");
+           	 }else{
+                	printf("i is not equal to 2\n");
+		 }
+
+
+	c. for(x = 999; x >= 1; x +=2)
+	   	printf("%d\n", n);
+
+	c fixed: for(int x = 999; x >= 1; x -=2){
+                 	printf("%d\n", x);
+		 }
+
+
+	d. counter = 2;
+	   Do {
+	   	if(counter % 2 == 0)
+			printf("%d\n", counter);
+			counter += 2;
+	   }While(counter < 100)
+
+	d fixed: counter = 2;
+                 while(counter < 100){
+                 	if((counter % 2) == 0){
+                        	printf("%d\n", counter);
+                        	counter += 2;
+				}
+           	 }
+
+
+	e. total = 1;
+	   for(x = 100; x <= 150; x++);
+	   	total += x;
+
+	e fixed: total = 0;
+		 for(int x = 100; x <= 150; x++){
+		 	total += x;
+		 }
+		 

@@ -1,0 +1,254 @@
+Corwin Perren - 931759527
+Assignment 2 - ECE151
+Written Questions
+
+
+Problem 1(10.2)
+	a. 
+	Original code:
+		char str[5];
+		scanf("%s", str); /* User types hello */
+
+	Fixed code:
+		char str[5];
+		scanf("%s", &str); //user types hello
+	Explanation:
+		An ampersand is needed to store the value to memory, and the commenting 
+		is inconsistent with the style guide.
+
+	b. 
+	Original:
+		int a[3];
+		printf("%d  %d  %d\n", a[1], a[2], a[3]);
+	Fixed:
+		int a[3] = {1, 3, 5};
+		printf("%d  %d  %d\n", a[0], a[1], a[2]);
+	Explanation:
+		The original creates an empty array with no values in it, which makes it
+		impossible to print its contents. The location in memory is dumped. Also,
+		the locations printf is pulling from are one block off. The first value 
+		has location [0,0], not [1,1]. 
+
+	c. 
+	Original:
+		double f[3] = {1.1, 10.01, 100.001, 1000.001};
+	Fixed:
+		double f[4] = {1.1, 10.01, 100.001, 1000.001};
+	Explanation:
+		The array is not large enough.
+
+	d. 
+	Original:
+		double d[2][10];
+		d[1,9] = 2.345;
+	Fixed:
+		float d[2][10];
+		d[1][9] = 2.345;
+	Explanation:
+		Used incorrect location mapping and the double was not big enough to 
+		handle this decimal.
+
+
+
+Problem 2(10.4)
+
+Original:
+	int N;
+	int M=90;
+
+	int funct4(int n) {
+		int i;
+		int m = n;
+		int a[n][n];
+		int b[n][m];
+		int c[printf("%d\n", n)][n];
+		int d[n][N];
+		int e[n][M];
+		int f[n] = {1, 2, 3, 4};
+		static int g[n];
+	
+		for(i=0; i<n; i++) {
+			a[i][i] = 3+b[i][i];
+
+		}
+		funct4(4);
+
+	Fixed (option 1):
+
+		int funct4(int n) {
+			int N; // these two should be initialized within the function
+			int M = 90; //spacing
+			int i;
+			int n = 50; //int n needed, with value
+			int m = n;
+			int a[n][n];
+			int b[n][m];
+			int c[n][n]; //removed print statement (unnecessary)
+			int d[n][N];
+			int e[n][M];
+			int f[n] = {1, 2, 3, 4};
+			static int g[n];
+
+			for(i=0; i<n; i++) {
+				a[i][i] = 3+b[i][i];
+
+			}
+       } //end bracket needed
+		funct4(4); //sets n = 4
+
+Fixed (option 2):
+
+       int funct4(int n) {
+		int n; //no capital letters allowed
+		int m = 90 //no capital letters allowed
+		int i;
+		int m = n;
+		int a[n][n];
+		int b[n][m];
+		int c[n][n]; //removed print statement (unnecessary)
+		int d[n][n]; //no capital letters allowed
+		int e[n][m]; //no capital letters allowed
+		int f[ ][n] = {1, 2, 3, 4}; //needed first dimension brackets
+		static int g [ ][n]; //needed first dimension brackets
+
+		for(i=0; i<n; i++) {
+			a[i][i] = 3+b[i][i];
+
+		}
+       } //end bracket needed
+	funct4(4);
+
+Prob 3(11.1)
+	a. No errors, just prints an empty value.
+	b. Fixed:
+		float *realPtr;
+		int *integer pointer;
+		*integerPtr = (int) *realPtr //needed asterisks and typecasting.
+	c. Fixed:
+		int *x, y;
+		x = &y; //need to specify that y is the target of the pointer x
+	d. Fixed:
+		int i; //needs a looping variable
+		char s[] = 'this is a character array";
+		for(i = 0; *(s+1) != '\0'; i++) { //needs loop assignment, parentheses, 
+						  // and brackets
+			printf("%c", *(s+i)); //matches original pointer
+		} //needs end bracket
+	e. Fixed:
+		short *numPtr, result;
+		void *genericPtr = numPtr;
+		result = ((short) *genericPtr) + 7; //needs typecast change
+	f. Fixed:
+		float x = 19.34;
+		float *xPtr = &x; //missing splat
+		printf("%f\n", xPtr);
+	g. Fixed:
+		char *s;
+		printf("%c\n", *s); //since s is a char, it should be %c, and it also 
+				    //needs to be *s, since that's the real name
+	h. Fixed:
+		int funct1(int *p){
+			int i = -1;
+			int *pp;
+			return i; //it doesn't return a pointer 
+		}
+
+		int main(int argc, char **argv){ //main needs arguments
+			int i = 5;
+			funct1(&i); //makes int *p point to the address of i, not the 
+				    //value.
+		}		
+
+
+
+Problem 4(11.2)
+	a. False. Pointers can always be dereferenced to be compared.
+	b. True. 
+
+Problem 5(11.3)
+	a. long long int *11ptr;
+	b. 11ptr = &value1;
+	c. printf("%d\n", *11ptr);
+
+Problem 6(11.4)
+	a. int main(int argc, char **argv) {
+		int count = 0;
+		int a[10];
+		int *p = (int *) malloc(10*sizeof(int));
+
+		for(count = 0; count < 10; count++) {
+			a[count] = 5;
+		}
+		free (int *p);
+		return 0;
+	}
+
+	b. char *str = (char *) malloc(10 * sizeof("this string"));
+
+
+Problem 7(11.8)
+	This application tries to scan two strings and print only the first, but  because
+	of the error on line "scanf("%s%s", string1, string2);", it puts both strings 
+	into string1 and prints them consecutively.
+
+Problem 8(11.9)
+	This application scans a user string and outputs its length.
+
+Problem 9(11.21)
+
+       Original test value: 
+		a[1][2] (8)
+       in int a[3][5] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15}
+	everything that isn't equal to 8 is false
+Test Code Output: 
+	8 - A
+	8 - C
+	8 - D
+	8 - E
+	4 - F
+	-1071285860 - G
+	8 - H
+	6 - I
+	8 - J
+	-1071285780 - K
+	8 - L
+	8 - M
+	5 - N
+	7 - O
+	-1071285800 - P
+	9 - Q
+B wouldn't even run as given.
+True Values: A, C, D, E, H, J, L, M
+False Values: F, G, I, K, N, O, P, Q
+
+
+10. In logical operations, there is a concept known as short circuiting. What this means 
+is that as soon as a logical expression's truth value can be determined, evaluation 
+stops. For instance, with an OR statement, if the first portion is TRUE, the second would
+not be evaluated in a short circuit evaluation system. Discuss how you might determine 
+whether C uses short circuit evaluation. Consider implementing your idea to test it. Did 
+it work? Include any lines of code necessary to test within the text file.
+
+Yes, C uses short circuit evaluation. The follow function returned:
+"Yup, it worked.
+That worked too."
+
+
+
+#include <stdio.h>
+
+#define x 5
+#define y 10
+
+int main (int argc, char **argv) {
+
+	if ((x == 5) | (x == 6)) {
+		printf("Yup, it worked.\n");
+	}
+
+	if ((x == 6) | (y == 10)) {
+		printf("That worked too.\n");
+	}
+ 	return 0;
+
+}

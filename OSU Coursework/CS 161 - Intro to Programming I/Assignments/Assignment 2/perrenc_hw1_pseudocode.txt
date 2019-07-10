@@ -1,0 +1,160 @@
+Corwin Perren - 931759527
+Assignment 2 - ECE151
+Pseudocode
+
+
+--------Problem 1 ( 10.7 )--------
+
+Clear the screen.
+Initialize the variables dayloop and weekloop.
+Initialize the array "mean" and fill it with zeros.
+
+Initialize and fill the array "hits" with the array data from the book.
+
+Sum all integers in the same column and store them in the corresponding 
+column of "mean".
+
+Divide each column of "mean" by the number of values that were summed and
+store that number back onto that value of mean.
+
+Print out the values of "mean" for each day of the week.
+
+Pause until the user presses enter, then return to the menu.
+
+
+--------Problem 2 ( 10.10 )--------
+
+Clear the screen
+
+Initialize loop, centroidx, centroidy, and intenstity total.
+
+Initialize the arrays "pixel" and "intensity" and fill them with the values
+from the book.
+
+Multiply each row of pixel by their respective column in intensity and sum
+these onto centroidx and y respectively.
+
+Add all the intensity values together and store it on intensitytotal.
+
+Divide centroidx and y by intensitytotal and store the values back on those
+those repective variables.
+
+Print the values of centroidx and y.
+
+Pause until the user presses enter, then return to menu.
+
+
+--------Problem 3 ( 10.30 )--------
+
+***Main Function***
+
+Clear the screen.
+
+Initialize loop, searchreturn, and searchvalue with a binary value you want to
+search for.
+
+Initialize the array "data" and fill it with made up binary numbers.
+
+Print a header for a printout of the current array.
+
+Print out the array "data".
+
+Call binarysearch and store its return value on searchreturn.
+
+If reutrnvalue is not equal to negative one, print a statement saying the
+search was successful and the binary value was found, otherwise print a
+statement saying the binary search failed and the value could not be found.
+
+Pause until the user presses enter, then return to the menu.
+
+***Binary Search Function***
+
+Initialize loop.
+
+Search for a match of the binary value in each element of the array. If a
+result is found, return at which element it was found, else return negative
+one.
+
+
+--------Problem 5 ( Matrix Multiplication )--------
+
+Clear the screen.
+
+Initialize arraysize, loop1, loop2, and loop3.
+
+Ask the user for the size of the arrays they would like to multiply and store
+that value on arraysize.
+
+Initialize array1, array2, and array3 as square arrays with arraysize as their
+row and column sizes.
+
+Fill array1 and array2 with numbers and array3 with zeros.
+
+Print out a header for array1, then print array1.
+
+Print out a header for array2, then print array2.
+
+Make each element of array3 equal to the result of performing matrix
+multiplication on array1 and array2.
+
+Print a header for array3, then print out array3.
+
+Pause until the user presses enter, then return to the menu.
+
+
+--------Problem 6 ( Sieve of Eratosthenes )--------
+
+Clear the screen
+
+Initialize userin1, loop1, loop2, loop3, and total.
+
+Ask the user for a number to calculate primes up to from zero, and store it on
+userin1.
+
+Initialize the array "sieve" with a size one less than userin1.
+
+Fill "sieve" with integers from two to userin1.
+
+Mark all composites for each integer from two to the user entered number by making
+that value in the array equal to zero.
+
+Print a header for the prime numbers that are left, then print out value from
+the array that are not equal to zero while incrementing total.
+
+Print out the number of prime numbers printed from the last step by printing
+total.
+
+Pause until the user presses enter, then return to the menu.
+
+
+--------Problem 7 ( 11.6)--------
+
+***Main Function***
+
+Initialize arrays string1 and string2 and int loop.
+
+Clear the screen.
+
+Prompt the user to enter a string and store it on string1 after clearing the
+buffer.
+
+Loop through each element of string1 until a newline character is found.
+Replace the newline character with a null character to turn the array into a
+string.
+
+Print out a header for string1 and the string itself.
+
+Call str_cpy on string1.
+
+Print a header for string2, then print the string itself.
+
+Pause until the user presses enter, then return to the menu.
+
+***Str_Copy Function***
+
+Initialize loop.
+
+Copy each element from the source string to the destination string, then add a
+null character to the end to keep it a string.
+
+Return the copied string.
